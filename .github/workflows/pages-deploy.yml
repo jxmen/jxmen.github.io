@@ -44,6 +44,17 @@ jobs:
         with:
           ruby-version: 3   # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
           bundler-cache: true
+      
+      - name: Install npm dependencies
+        description: npm 패키지 설치
+        run: npm install
+
+      - name: npm prebuild
+        run: npm run prebuild
+
+      - name: npm build
+        description: javascript 파일 rollup
+        run: npm run build
 
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
