@@ -46,14 +46,12 @@ jobs:
           bundler-cache: true
       
       - name: Install npm dependencies
-        description: npm 패키지 설치
         run: npm install
 
       - name: npm prebuild
         run: npm run prebuild
 
       - name: npm build
-        description: javascript 파일 rollup
         run: npm run build
 
       - name: Build site
