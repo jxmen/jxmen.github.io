@@ -30,6 +30,23 @@ Sliding Window 알고리즘은 배열에서 특정 영역에 해당하는 곳을
 
 - Two Pointer 알고리즘과 유사하지만, 길이가 가변적인 Two Pointer와 달리 **고정적인 길이**를 가진다는 특징이 있다.
 
+#### Sliding Window의 구현
+
+Sliding Window의 경우 초기 rt값을 먼저 세팅해놓고, rt와 lt가 서로 증가하면서 따라오는 식으로 구현을 할 수 있다.
+
+```Java
+List<Integer> answer = new ArrayList<>();
+Map<Integer, Integer> map = new HashMap<>();
+
+int lt = 0, rt = 0;
+
+// 1. sliding window 초기 세팅. 이게 끝나면 rt는 k-1의 인덱스로 이동한다.
+for (int i = 0; i < k; i++) {
+    map.put(arr[rt], map.getOrDefault(arr[rt], 0) + 1);
+    rt++;
+}
+```
+
 ### Sliding Window 알고리즘의 시간복잡도
 
 Two Pointer와 마찬가지로 `O(N)`의 시간복잡도를 가진다.
