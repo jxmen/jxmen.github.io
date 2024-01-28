@@ -1,9 +1,9 @@
 # Site settings
-title: jxmen
+title: 박주영의 위키
 # url: "https://wiki.jxmen.dev"
 baseurl: ""
-description: >
-    박주영의 위키
+# description: >
+#     박주영의 위키
 
 # My information
 email: sprnd645@gmail.com
