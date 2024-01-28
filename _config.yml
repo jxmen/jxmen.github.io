@@ -1,16 +1,15 @@
 # Site settings
-title: 기계인간 John Grib
-url: "https://johngrib.github.io"
+title: jxmen
+# url: "https://wiki.jxmen.dev"
 baseurl: ""
 description: >
-    기계인간 블로그
+    박주영의 위키
 
 # My information
-email: johngrib82@gmail.com
-author: 기계인간 John Grib
-profile: 유물론자
-twitter_username: John_Grib
-github_username: johngrib
+email: sprnd645@gmail.com
+author: 박주영
+profile: 박주영
+github_username: jxmen
 comment-support: utterances
 
 # Build settings
@@ -37,22 +36,22 @@ collections:
         permalink: /:collection/:path/
 
 # Comment Service
-giscus:
-  repo: johngrib/johngrib.github.io
-  repo_id: SAMPLE-VALUE
-  category: Announcements
-  category_id: SAMPLE-VALUE
+# giscus:
+#   repo: johngrib/johngrib.github.io
+#   repo_id: SAMPLE-VALUE
+#   category: Announcements
+#   category_id: SAMPLE-VALUE
 
-google_analytics:
-  ua: SAMPLE-VALUE
-  encrypted_ua: THIS-IS-SAMPLE-VALUE
+# google_analytics:
+#   ua: SAMPLE-VALUE
+#   encrypted_ua: THIS-IS-SAMPLE-VALUE
 
-google_adsense:
-  client: SAMPLE-VALUE
+# google_adsense:
+#   client: SAMPLE-VALUE
 
-blame: "https://github.com/johngrib/johngrib.github.io/blame/master/_wiki"
-edit: "https://github.com/johngrib/johngrib.github.io/edit/master/_wiki"
-issue: "https://github.com/johngrib/johngrib.github.io/issues/new"
+# blame: "https://github.com/johngrib/johngrib.github.io/blame/master/_wiki"
+# edit: "https://github.com/johngrib/johngrib.github.io/edit/master/_wiki"
+# issue: "https://github.com/johngrib/johngrib.github.io/issues/new"
 
 timezone: "Asia/Seoul"
 
