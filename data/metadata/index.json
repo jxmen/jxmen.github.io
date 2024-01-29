@@ -2,8 +2,9 @@
  "type": "wiki",
  "title": "ROOT",
  "url": "/wiki/index",
- "updated": "2024-01-29 10:44:18 +0900",
+ "updated": "2024-01-29 11:04:39 +0900",
  "children": [
-  "스터디"
+  "스터디",
+  "Kotlin"
  ]
 }
