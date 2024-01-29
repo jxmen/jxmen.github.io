@@ -2,5 +2,9 @@
  {
   "name": "kotlin",
   "size": 1
+ },
+ {
+  "name": "mac",
+  "size": 2
  }
 ]
