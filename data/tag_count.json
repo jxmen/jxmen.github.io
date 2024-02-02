@@ -10,5 +10,9 @@
  {
   "name": "mac",
   "size": 2
+ },
+ {
+  "name": "project",
+  "size": 2
  }
 ]
