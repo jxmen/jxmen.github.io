@@ -4,7 +4,9 @@
  "summary": "",
  "parent": "project",
  "url": "/wiki/project/flash-card",
- "updated": "2024-02-03 03:27:20 +0900",
+ "updated": "2024-02-04 00:47:11 +0900",
  "resource": "A8484366-8B19-4A31-A701-94B70CE8FA11",
- "children": []
+ "children": [
+  "project/flash-card/tools"
+ ]
 }

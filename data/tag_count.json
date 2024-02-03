@@ -13,6 +13,10 @@
  },
  {
   "name": "project",
-  "size": 2
+  "size": 3
+ },
+ {
+  "name": "setting",
+  "size": 1
  }
 ]
