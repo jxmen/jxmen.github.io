@@ -50,8 +50,8 @@ collections:
 #   client: SAMPLE-VALUE
 
 blame: "https://github.com/jxmen/jxmen.github.io/blame/main/_wiki"
-# edit: "https://github.com/johngrib/johngrib.github.io/edit/master/_wiki"
-# issue: "https://github.com/johngrib/johngrib.github.io/issues/new"
+edit: "https://github.com/jxmen/jxmen.github.io/edit/main/_wiki"
+issue: "https://github.com/jxmen/jxmen.github.io/issues/new"
 
 timezone: "Asia/Seoul"
 
