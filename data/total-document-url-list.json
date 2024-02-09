@@ -1,6 +1,4 @@
 [
- "/wiki/스터디",
- "/wiki/오브젝트-내용-요약",
  "/wiki/Git",
  "/wiki/Git/manual",
  "/wiki/index",
@@ -13,5 +11,8 @@
  "/wiki/mac/productivity-and-tips",
  "/wiki/project",
  "/wiki/project/flash-card",
- "/wiki/project/flash-card/tools"
+ "/wiki/project/flash-card/tools",
+ "/wiki/Study",
+ "/wiki/study/object",
+ "/wiki/study/object/summary"
 ]

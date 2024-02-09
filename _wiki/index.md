@@ -5,7 +5,7 @@ date    : 2024-01-29 09:53:07 +0900
 toc     : true
 public  : true
 comment : false
-updated : 2024-02-10 00:55:11 +0900
+updated : 2024-02-10 03:45:52 +0900
 regenerate: true
 ---
 
@@ -13,7 +13,7 @@ regenerate: true
 - [[Java]]
 - [[Kotlin]]
 - [[Mac]]
-- [[스터디]]
+- [[Study]]
 - [[Project]]
 
 ## 문서 목록
