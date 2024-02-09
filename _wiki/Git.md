@@ -14,4 +14,4 @@ resource: 2B3C18D1-DB9F-46FF-9C01-11F3B9313032
 * TOC
 {:toc}
 
-- [[Git/manual]]
+- [[git/manual]]

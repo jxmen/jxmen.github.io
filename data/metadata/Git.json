@@ -3,10 +3,8 @@
  "title": "Git",
  "summary": "",
  "parent": "index",
- "url": "/wiki/Git",
+ "url": "/wiki/git",
  "updated": "2024-02-10 00:56:07 +0900",
  "resource": "2B3C18D1-DB9F-46FF-9C01-11F3B9313032",
- "children": [
-  "Git/manual"
- ]
+ "children": []
 }

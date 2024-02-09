@@ -14,4 +14,4 @@ resource: 0DD98A59-3F6D-4947-8A4E-2851F8BE4C61
 * TOC
 {:toc}
 
-- [[/Kotlin/kotlin-koans]]
+- [[/kotlin/kotlin-koans]]

@@ -14,5 +14,5 @@ resource: 93663695-318C-40F3-8837-2EA2180E6E34
 * TOC
 {:toc}
 
-- [[/Java/equals-and-hashCode]]
-- [[/Java/primitive-and-reference-types]]
+- [[/java/equals-and-hashCode]]
+- [[/java/primitive-and-reference-types]]

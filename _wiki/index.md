@@ -9,11 +9,11 @@ updated : 2024-02-10 03:45:52 +0900
 regenerate: true
 ---
 
-- [[Git]]
-- [[Java]]
-- [[Kotlin]]
-- [[Mac]]
-- [[Study]]
-- [[Project]]
+- [[git]]
+- [[java]]
+- [[kotlin]]
+- [[mac]]
+- [[study]]
+- [[project]]
 
 ## 문서 목록

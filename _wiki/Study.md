@@ -14,4 +14,4 @@ resource: B385CAAD-C359-4AEE-BB3D-D34F8268EC3E
 * TOC
 {:toc}
  
-- [[/Study/Object]]
+- [[/study/object]]

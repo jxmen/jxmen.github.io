@@ -14,4 +14,4 @@ resource: 98617D36-CD67-4076-8679-2EC1C8358B9A
 * TOC
 {:toc}
 
-- [[/Study/Object/summary]]
+- [[/study/object/summary]]

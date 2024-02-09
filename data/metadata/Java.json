@@ -3,10 +3,10 @@
  "title": "Java",
  "summary": "",
  "parent": "index",
- "url": "/wiki/Java",
+ "url": "/wiki/java",
  "updated": "2024-02-09 23:58:20 +0900",
  "resource": "93663695-318C-40F3-8837-2EA2180E6E34",
  "children": [
-  "Java/primitive-and-reference-types"
+  "Java/equals-and-hashCode"
  ]
 }
