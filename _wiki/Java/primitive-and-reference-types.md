@@ -3,7 +3,7 @@ layout  : wiki
 title   : 프리미티브 타입과 레퍼런스 타입
 summary : 
 date    : 2024-02-09 23:18:39 +0900
-updated : 2024-02-10 00:11:15 +0900
+updated : 2024-02-10 00:12:04 +0900
 tag     : java 
 toc     : true
 public  : true
@@ -79,7 +79,7 @@ void _127_Integer는_비교시_true를_반환한다(int value) {
 해당 캐시 지정값은 JVM 옵션을 통해 수정이 가능하다.
 
 ### 참고 문서
-- [https://meetup.nhncloud.com/posts/185](https://meetup.nhncloud.com/posts/185)
+- [[Java] Integer.valueOf(127) == Integer.valueOf(127) 는 참일까요?](https://meetup.nhncloud.com/posts/185)
 
 ### 주석
 
