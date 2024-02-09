@@ -23,4 +23,4 @@ latex: true
 
 ## 박주영의 위키
 
-해당 위키는 기계인간 종립(johngrib)님의 [위키 스켈레톤](https://github.com/johngrib/johngrib-jekyll-skeleton)을 통해 만들어졌습니다.
+해당 위키는 기계인간 종립(johngrib)님의 [Vimwiki + Jekyll + Github.io로 나만의 위키를 만들자](https://johngrib.github.io/wiki/my-wiki/)를 통해 만들어졌습니다.
