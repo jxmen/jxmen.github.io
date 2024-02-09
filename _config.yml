@@ -36,11 +36,11 @@ collections:
         permalink: /:collection/:path/
 
 # Comment Service
-# giscus:
-#   repo: johngrib/johngrib.github.io
-#   repo_id: SAMPLE-VALUE
-#   category: Announcements
-#   category_id: SAMPLE-VALUE
+giscus:
+  repo: jxmen/jxmen.github.io
+  repo_id: R_kgDOLKyoHA
+  category: Comments
+  category_id: DIC_kwDOLKyoHM4CdGSe
 
 # google_analytics:
 #   ua: SAMPLE-VALUE
