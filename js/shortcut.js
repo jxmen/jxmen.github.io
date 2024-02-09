@@ -73,7 +73,8 @@ Ctrl + Shift + r : 문서 내 랜덤 링크`;
         }
         if (e.which == 73) {
             // ctrl + i : index 페이지로 이동
-            window.location.href = '/wiki/root-index/';
+            // window.location.href = '/wiki/root-index/';
+            window.location.href = '/wiki/index/';
             return;
         }
         if (e.which == 70) {
