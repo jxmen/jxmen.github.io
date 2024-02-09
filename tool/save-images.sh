@@ -2,7 +2,7 @@
 
 # github에 올린 user-images를 자동으로 다운로드합니다.
 
-NUM=1855714
+NUM=26791234
 
 CHANGE_LIST=`git diff --exit-code --cached --name-only --diff-filter=ACM -- '*.md'`
 
@@ -21,16 +21,21 @@ for CHANGED_FILE in $CHANGE_LIST; do
     # URI_LIST=`ag "https://user-images\.githubuser.*?\/$NUM\/.*?(png|jpg|gif|mp4)" -o $CHANGED_FILE`
     # URI_LIST=`ag "https://pbs.twimg.com/media/.*?(png|jpg|gif|mp4)" -o $CHANGED_FILE`
 
-    URI_LIST=`ag "https://((user-images\.githubuser.*?\/$NUM\/)|(pbs.twimg.com/media/)|(video.twimg.com/.+_video/)).*?(png|jpg|gif|mp4)" -o $CHANGED_FILE`
+    # URI_LIST=`ag "https://((github.com*.*?\/$NUM\/)).*?(png|jpg|gif|mp4)" -o $CHANGED_FILE`
+
+    # 240210 - 현재는 github issue에 업로드 시 github.com/ ... 주소로 업로드 된다
+    URI_LIST=`ag "https://github\.com/.*\/$NUM\/[^()]*" -o $CHANGED_FILE`
 
     for URI in $URI_LIST; do
         FILE_NAME=`echo $URI | sed 's,^.*/,,'`
-        RESOLVE_FILE_PATH="$TARGET_PATH/$FILE_NAME"
+        RESOLVE_FILE_PATH="$TARGET_PATH/$FILE_NAME.png"
         RESOLVE_URL=`echo "$RESOLVE_FILE_PATH" | sed -E 's/^\.//'`
 
         echo "작업 대상 URI: [$URI]"
         echo "작업 대상 파일 패스: [$RESOLVE_FILE_PATH]"
-        curl -s $URI > $RESOLVE_FILE_PATH
+
+        # 240210 - github.com 주소에서 다운로드 시 리다이렉트 되어 -L옵션 추가
+        curl -s -L $URI > $RESOLVE_FILE_PATH
 
         if [ "$?" == "0" ]; then
             echo "DOWNLOAD SUCCESS: $FILE_NAME"
