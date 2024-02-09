@@ -3,7 +3,7 @@ layout  : wiki
 title   : Kotlin Koans 필요한 내용 요약
 summary : Intellij에서 제공하는 Kotlin 튜토리얼 플러그인 
 date    : 2024-01-29 11:02:01 +0900
-updated : 2024-01-29 20:25:07 +0900
+updated : 2024-02-10 03:44:56 +0900
 tag     : kotlin
 toc     : true
 public  : true
@@ -18,7 +18,7 @@ resource: EB558039-AC80-4BDF-9913-DDDE2CAC3D3D
 - 정규식을 선언할때도 큰따옴표 3개를 사용한다 `"""\d{2}"""`
 
 ### Null 다루기
-- let 구문은 null이 아닐때만 괄호 안의 구문이 실행된다
+- let 구문과 옵셔널 체이닝(`?.`)을 조합하여, null이 아닐때만 괄호 안의 구문이 실행되도록 할 수 있다.
 	```kotlin
 	message?.let { mailer.sendMessage(email, message)} // message를 it으로도 가능
 	```
@@ -70,5 +70,4 @@ resource: EB558039-AC80-4BDF-9913-DDDE2CAC3D3D
 - [링크](https://kotlinlang.org/docs/collection-aggregate.html#fold-and-reduce)
 	- 초기값을 지정하고 싶을때는 `Fold`를 사용한다.
 	- 모든 축소 작업은 빈 컬렉션일때는 Exception을 발생한다. 이에 대응하려면 orNull을 사용하면 null로 받을 수 있다.
-
 
