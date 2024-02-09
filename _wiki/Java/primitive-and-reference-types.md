@@ -79,7 +79,7 @@ void _127_Integer는_비교시_true를_반환한다(int value) {
 해당 캐시 지정값은 JVM 옵션을 통해 수정이 가능하다.
 
 ### 참고 문서
-- [[Java] Integer.valueOf(127) == Integer.valueOf(127) 는 참일까요?](https://meetup.nhncloud.com/posts/185)
+- [Java Integer.valueOf(127) == Integer.valueOf(127) 는 참일까요?](https://meetup.nhncloud.com/posts/185)
 
 ### 주석
 
