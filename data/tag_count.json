@@ -1,5 +1,9 @@
 [
  {
+  "name": "git",
+  "size": 1
+ },
+ {
   "name": "java",
   "size": 3
  },
