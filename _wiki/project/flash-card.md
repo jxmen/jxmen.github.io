@@ -1,9 +1,9 @@
 ---
 layout  : wiki
 title   : 플래시 카드 프로젝트
-summary : 
+summary : 출퇴근길에 내가 공부하려고 만드는 앱
 date    : 2024-02-03 02:02:17 +0900
-updated : 2024-02-04 00:47:11 +0900
+updated : 2024-02-10 03:07:53 +0900
 tag     : project
 toc     : true
 public  : true
