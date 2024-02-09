@@ -2,9 +2,11 @@
  "type": "wiki",
  "title": "오브젝트 책 스터디",
  "summary": "",
- "parent": "Study",
+ "parent": "study",
  "url": "/wiki/study/object",
  "updated": "2024-02-10 03:48:43 +0900",
  "resource": "98617D36-CD67-4076-8679-2EC1C8358B9A",
- "children": []
+ "children": [
+  "study/object/summary"
+ ]
 }

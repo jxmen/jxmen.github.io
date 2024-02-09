@@ -7,7 +7,7 @@ updated : 2024-02-10 03:48:43 +0900
 tag     : 
 toc     : true
 public  : true
-parent  : [[/Study]]
+parent  : [[/study]]
 latex   : false
 resource: 98617D36-CD67-4076-8679-2EC1C8358B9A
 ---

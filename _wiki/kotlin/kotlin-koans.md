@@ -7,7 +7,7 @@ updated : 2024-02-10 03:44:56 +0900
 tag     : kotlin
 toc     : true
 public  : true
-parent  : [[Kotlin]]
+parent  : [[kotlin]]
 latex   : false
 resource: EB558039-AC80-4BDF-9913-DDDE2CAC3D3D
 ---

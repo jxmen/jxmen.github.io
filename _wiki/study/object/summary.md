@@ -7,7 +7,7 @@ updated : 2024-02-10 03:49:17 +0900
 tag     : oop
 toc     : true
 public  : true
-parent  : [[/Study/Object]]
+parent  : [[/study/object]]
 latex   : false
 resource: 9AC86666-8584-4D2E-BA26-5E7464117A13
 ---

@@ -7,7 +7,7 @@ updated : 2024-02-10 00:12:04 +0900
 tag     : java 
 toc     : true
 public  : true
-parent  : [[/Java]] 
+parent  : [[/java]] 
 latex   : false
 resource: FE59C026-63F3-44EF-8C86-A6C00E5ADB0B
 ---

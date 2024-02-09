@@ -7,7 +7,7 @@ updated : 2024-02-10 01:07:59 +0900
 tag     : git 
 toc     : true
 public  : true
-parent  : [[/Git]]
+parent  : [[/git]]
 latex   : false
 resource: 00BACC0F-BF24-4773-BB9C-C23984AE8D70
 ---
