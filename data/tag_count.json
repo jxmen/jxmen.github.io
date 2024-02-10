@@ -1,5 +1,9 @@
 [
  {
+  "name": "command",
+  "size": 2
+ },
+ {
   "name": "git",
   "size": 2
  },
@@ -34,5 +38,9 @@
  {
   "name": "study",
   "size": 2
+ },
+ {
+  "name": "tmux",
+  "size": 1
  }
 ]
