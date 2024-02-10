@@ -20,6 +20,10 @@
   "size": 1
  },
  {
+  "name": "pattern",
+  "size": 2
+ },
+ {
   "name": "project",
   "size": 3
  },
