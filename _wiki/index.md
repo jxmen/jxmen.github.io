@@ -5,16 +5,8 @@ date    : 2024-01-29 09:53:07 +0900
 toc     : true
 public  : true
 comment : false
-updated : 2024-02-10 12:59:05 +0900
+updated : 2024-02-11 02:23:41 +0900
 regenerate: true
 ---
-
-- [[git]]
-- [[java]]
-- [[kotlin]]
-- [[pattern]]
-- [[mac]]
-- [[study]]
-- [[project]]
 
 ## 문서 목록

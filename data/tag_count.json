@@ -1,7 +1,7 @@
 [
  {
   "name": "git",
-  "size": 1
+  "size": 2
  },
  {
   "name": "java",
@@ -17,7 +17,7 @@
  },
  {
   "name": "oop",
-  "size": 1
+  "size": 2
  },
  {
   "name": "pattern",
@@ -30,5 +30,9 @@
  {
   "name": "setting",
   "size": 1
+ },
+ {
+  "name": "study",
+  "size": 2
  }
 ]
