@@ -1,9 +1,9 @@
 ---
 layout  : wiki
-title   : 전략 패턴
+title   : 전략 패턴 (Strategy)
 summary : 알고리즘을 캡슐화하여 런타임에서 변경할 수 있도록 한다
 date    : 2024-02-10 17:50:10 +0900
-updated : 2024-02-10 19:35:45 +0900
+updated : 2024-02-10 20:57:28 +0900
 tag     : pattern
 toc     : true
 public  : true
