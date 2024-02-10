@@ -1,5 +1,6 @@
 [
  "pattern",
+ "pattern/design-pattern",
  "pattern/observer",
  "pattern/strategy"
 ]
