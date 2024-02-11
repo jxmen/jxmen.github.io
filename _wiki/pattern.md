@@ -3,7 +3,7 @@ layout  : category
 title   : 패턴
 summary : 디자인 패턴 포함, 아키텍처 패턴 등 
 date    : 2024-02-10 12:57:14 +0900
-updated : 2024-02-11 02:21:29 +0900
+updated : 2024-02-11 17:24:52 +0900
 tag     : pattern 
 toc     : true
 public  : true
@@ -16,8 +16,6 @@ resource: FF2CAB15-66C6-4C9E-B277-111D828DA75F
 
 ## 작성 예정 문서
 
-- [ ] 상태
-	- 객체 내부의 상태가 바뀜에 따라 객체의 행동을 바꾼다.
 - [ ] 프록시
 - [ ] 커맨드
 - [ ] 어댑터
