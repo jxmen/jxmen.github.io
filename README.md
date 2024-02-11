@@ -1,4 +1,6 @@
-# Vimwiki + Jekyll + Github.io
+# wiki
+
+이 위키는 종립(johngrib)님의 [Vimwiki + Jekyll + Github.io로 나만의 위키를 만들자](https://johngrib.github.io/wiki/my-wiki/)를 통해 만들어졌습니다.
 
 ## 시작하기
 
