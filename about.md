@@ -24,3 +24,6 @@ latex: true
 ## 박주영의 위키
 
 해당 위키는 기계인간 종립(johngrib)님의 [Vimwiki + Jekyll + Github.io로 나만의 위키를 만들자](https://johngrib.github.io/wiki/my-wiki/)를 통해 만들어졌습니다.
+
+잘못된 내용이나 오타는 메일 sprnd645@gmail.com 혹은 댓글로 알려주세요!
+
