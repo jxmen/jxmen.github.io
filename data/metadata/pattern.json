@@ -9,6 +9,7 @@
  "children": [
   "pattern/design-pattern",
   "pattern/observer",
+  "pattern/proxy",
   "pattern/state",
   "pattern/strategy"
  ]
