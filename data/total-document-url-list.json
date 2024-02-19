@@ -1,6 +1,8 @@
 [
  "/wiki/commands",
  "/wiki/commands/tmux",
+ "/wiki/cs",
+ "/wiki/cs/concurrency-issue",
  "/wiki/git",
  "/wiki/git/manual",
  "/wiki/index",
