@@ -7,6 +7,7 @@
  "updated": "2024-02-11 02:23:21 +0900",
  "resource": "A8484366-8B19-4A31-A701-94B70CE8FA11",
  "children": [
+  "project/flash-card/intro",
   "project/flash-card/tools"
  ]
 }
