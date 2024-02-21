@@ -3,7 +3,7 @@ layout  : wiki
 title   : 동시성 이슈
 summary : 동시성 이슈와 문제 해결 사례 정리
 date    : 2024-02-19 23:49:16 +0900
-updated : 2024-02-20 01:31:27 +0900
+updated : 2024-02-21 22:29:44 +0900
 tag     : 
 toc     : true
 public  : true
@@ -32,7 +32,7 @@ resource: 3BCA78B6-7019-4FD0-AFAF-3CA574322837
 
 다만 락의 경우 데이터 일관성을 보장해 줄 순 있지만 트래픽이 늘어나면 성능 저하도 우려될 수 있다.
 
-MySQL에서는 `select ... for update` 라는 구문을 통해 해당 행을 비관적 락(Optimistic Lock)을 걸도록 사용할 수도 있다.
+MySQL에서는 `select ... for update` 라는 구문을 통해 해당 행을 비관적 락(Pessimistic Lock)을 걸도록 사용할 수도 있다.
 
 그 외에 낙관적 락에 대해서도 존재한다.
 
