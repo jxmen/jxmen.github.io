@@ -3,6 +3,8 @@
  "/wiki/commands/tmux",
  "/wiki/cs",
  "/wiki/cs/concurrency-issue",
+ "/wiki/cs/database",
+ "/wiki/cs/database/isolation-level",
  "/wiki/git",
  "/wiki/git/manual",
  "/wiki/index",

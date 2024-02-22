@@ -8,6 +8,10 @@
   "size": 1
  },
  {
+  "name": "database",
+  "size": 2
+ },
+ {
   "name": "git",
   "size": 2
  },
@@ -45,6 +49,10 @@
  },
  {
   "name": "tmux",
+  "size": 1
+ },
+ {
+  "name": "transaction",
   "size": 1
  }
 ]
