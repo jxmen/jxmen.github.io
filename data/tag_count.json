@@ -1,5 +1,9 @@
 [
  {
+  "name": "algorithm",
+  "size": 2
+ },
+ {
   "name": "command",
   "size": 2
  },
@@ -41,6 +45,10 @@
  },
  {
   "name": "setting",
+  "size": 1
+ },
+ {
+  "name": "sort",
   "size": 1
  },
  {
