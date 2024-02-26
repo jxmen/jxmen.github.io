@@ -3,7 +3,7 @@ layout  : wiki
 title   : 데이터베이스 용어 정리
 summary : 
 date    : 2024-02-26 22:36:23 +0900
-updated : 2024-02-27 00:49:31 +0900
+updated : 2024-02-27 00:53:29 +0900
 tag     : database 
 toc     : true
 public  : true
@@ -50,7 +50,7 @@ resource: 6C3178ED-080D-44E6-9D91-D0FB7C597D1F
 
 ### 참고
 
-- [[10분 테코톡] 마루의 데이터베이스 Lock
+- [[10분 테코톡] 마루의 데이터베이스 Lock](https://www.youtube.com/watch?v=ZXV6ZqMyJLg&t=359s)
 - <https://sabarada.tistory.com/175>
 - [쉬운 코드 유튜브 - 파티셔닝,샤딩,레플리케이션](https://www.youtube.com/watch?v=P7LqaEO-nGU&t=8s)
-](https://www.youtube.com/watch?v=ZXV6ZqMyJLg&t=359s) 
+ 
