@@ -6,5 +6,7 @@
  "url": "/wiki/cs/os",
  "updated": "2024-02-26 02:11:54 +0900",
  "resource": "667AC84D-3893-4166-A019-706A33C15DBA",
- "children": []
+ "children": [
+  "cs/os/summary"
+ ]
 }

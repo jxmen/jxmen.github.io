@@ -3,11 +3,11 @@ layout  : wiki
 title   : 운영체제 용어 정리
 summary : 
 date    : 2024-02-26 02:15:02 +0900
-updated : 2024-02-26 15:03:44 +0900
+updated : 2024-02-27 00:55:48 +0900
 tag     : 
 toc     : true
 public  : true
-parent  : [[/cs]]
+parent  : [[/cs/os]]
 latex   : false
 resource: BE2D7A16-1606-4F42-9483-DCDF84E2AC77
 ---

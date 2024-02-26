@@ -9,7 +9,6 @@
  "children": [
   "cs/algorithm",
   "cs/concurrency-issue",
-  "cs/database",
-  "cs/os/summary"
+  "cs/database"
  ]
 }
