@@ -3,11 +3,11 @@ layout  : wiki
 title   : 데이터베이스 용어 정리
 summary : 
 date    : 2024-02-26 22:36:23 +0900
-updated : 2024-02-27 00:53:29 +0900
+updated : 2024-02-27 00:54:56 +0900
 tag     : database 
 toc     : true
 public  : true
-parent  : [[/database]] 
+parent  : [[/cs/database]] 
 latex   : false
 resource: 6C3178ED-080D-44E6-9D91-D0FB7C597D1F
 ---
