@@ -3,7 +3,7 @@ layout  : wiki
 title   : 데이터베이스 용어 정리
 summary : 
 date    : 2024-02-26 22:36:23 +0900
-updated : 2024-02-26 23:07:58 +0900
+updated : 2024-02-27 00:49:31 +0900
 tag     : database 
 toc     : true
 public  : true
@@ -17,6 +17,18 @@ resource: 6C3178ED-080D-44E6-9D91-D0FB7C597D1F
 ### 용어 정리
 
 용어들만 간단하게 정리
+
+- 낙관적 락 (Optimisstic Lock)
+	- 데이터 갱신 시 경합이 발생하지 않을 것이라 보는 것
+	- 버전을 명시하여, 데이터 변경 시 버전 업데이트를 통해 다른 트랜잭션이 업데이트 시도 시 예외 발생
+	- 어플리케이션에서 롤백을 수동으로 해야 하는 특징이 있으나, 비관적 락에 비해 성능이 더 좋음
+- 비관적 락 (Pessimistic Lock)
+	- 동일한 데이터를 동시에 수정할 가능성이 높다고 보고, 무조건 락을 획득할 때 까지 대기해야 하는 잠금
+	- 베타 락 (Exclusive Lock, X Lock)
+		- 쓰기 잠금
+	- 공유 락 (Shared Lock, S Lock)
+		- 읽기 잠금
+		- 읽기 잠금이 걸려 있어도 다른 읽기 잠금을 거는 것이 가능하다.
 
 - 파티셔닝 (partitioning)
   - 데이터베이스 table을 더 작은 table로 나누는 것
@@ -38,5 +50,7 @@ resource: 6C3178ED-080D-44E6-9D91-D0FB7C597D1F
 
 ### 참고
 
+- [[10분 테코톡] 마루의 데이터베이스 Lock
+- <https://sabarada.tistory.com/175>
 - [쉬운 코드 유튜브 - 파티셔닝,샤딩,레플리케이션](https://www.youtube.com/watch?v=P7LqaEO-nGU&t=8s)
- 
+](https://www.youtube.com/watch?v=ZXV6ZqMyJLg&t=359s) 
