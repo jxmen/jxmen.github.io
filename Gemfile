@@ -33,3 +33,6 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'kramdown-parser-gfm'
 
+# sapceship 추가
+gem 'jekyll-spaceship', group: :jekyll_plugins
+
