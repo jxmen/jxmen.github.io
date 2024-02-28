@@ -8,6 +8,10 @@
   "size": 2
  },
  {
+  "name": "cors",
+  "size": 1
+ },
+ {
   "name": "cpu",
   "size": 1
  },
@@ -22,6 +26,10 @@
  {
   "name": "git",
   "size": 2
+ },
+ {
+  "name": "http",
+  "size": 1
  },
  {
   "name": "io",
