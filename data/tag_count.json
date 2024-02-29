@@ -80,6 +80,10 @@
   "size": 2
  },
  {
+  "name": "tcp",
+  "size": 1
+ },
+ {
   "name": "tmux",
   "size": 1
  },
