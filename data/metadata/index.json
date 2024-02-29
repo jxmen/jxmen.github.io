@@ -6,7 +6,6 @@
  "children": [
   "commands",
   "cs",
-  "cs/os",
   "git",
   "http",
   "java",

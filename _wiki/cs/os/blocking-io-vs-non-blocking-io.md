@@ -3,11 +3,11 @@ layout  : wiki
 title   : Blocking I/O vs Non-Blocking I/O
 summary : 
 date    : 2024-02-26 21:24:58 +0900
-updated : 2024-02-26 22:35:17 +0900
+updated : 2024-02-29 20:05:07 +0900
 tag     : io
 toc     : true
 public  : true
-parent  : [[/os]] 
+parent  : [[/cs/os]] 
 latex   : false
 resource: 8E45ABB0-BF80-436D-8C78-5A413A9D2BED
 ---
