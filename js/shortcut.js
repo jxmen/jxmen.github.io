@@ -40,7 +40,7 @@
     }
 
     const helpText = `[도움말]
-Ctrl + h : 도움말
+Ctrl + g : 도움말
 Ctrl + i : 인덱스
 Ctrl + f : 검색창
 Ctrl + m : 메인화면
@@ -56,8 +56,8 @@ Ctrl + Shift + r : 문서 내 랜덤 링크`;
         if (!e.ctrlKey) {
             return;
         }
-        if (e.which == 72) {
-            // Ctrl + h : 도움말
+        if (e.which == 71) {
+            // Ctrl + g : 도움말
             alert(helpText);
             return;
         }
