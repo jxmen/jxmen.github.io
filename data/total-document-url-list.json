@@ -1,4 +1,7 @@
 [
+ "/wiki/book",
+ "/wiki/book/summary",
+ "/wiki/book/summary/object",
  "/wiki/commands",
  "/wiki/commands/tcpdump",
  "/wiki/commands/tmux",
@@ -36,7 +39,5 @@
  "/wiki/project/flash-card",
  "/wiki/project/flash-card/intro",
  "/wiki/project/flash-card/tools",
- "/wiki/study",
- "/wiki/study/object",
- "/wiki/study/object/summary"
+ "/wiki/study"
 ]

@@ -3,11 +3,11 @@ layout  : wiki
 title   : 오브젝트 내용 요약
 summary : 책 <오브젝트>의 내용을 요약한다. 
 date    : 2024-01-29 10:17:26 +0900
-updated : 2024-02-24 13:53:31 +0900
+updated : 2024-03-25 14:01:01 +0900
 tag     : oop
 toc     : true
 public  : true
-parent  : [[/study/object]]
+parent  : [[/book/summary]]
 latex   : false
 resource: 9AC86666-8584-4D2E-BA26-5E7464117A13
 ---

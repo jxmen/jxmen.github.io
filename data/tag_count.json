@@ -4,6 +4,10 @@
   "size": 2
  },
  {
+  "name": "book",
+  "size": 1
+ },
+ {
   "name": "command",
   "size": 2
  },
@@ -53,7 +57,7 @@
  },
  {
   "name": "oop",
-  "size": 2
+  "size": 1
  },
  {
   "name": "os",
@@ -77,7 +81,7 @@
  },
  {
   "name": "study",
-  "size": 2
+  "size": 1
  },
  {
   "name": "tcp",
