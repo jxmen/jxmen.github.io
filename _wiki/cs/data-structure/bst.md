@@ -3,7 +3,7 @@ layout  : wiki
 title   : Binary Search Tree 
 summary : 
 date    : 2024-03-26 16:12:07 +0900
-updated : 2024-03-26 16:51:29 +0900
+updated : 2024-03-26 16:59:25 +0900
 tag     : 
 toc     : true
 public  : true
@@ -41,7 +41,7 @@ N개의 노드가 밸런싱되어 꽉찬 경우에도 시간복잡도는 `O(logN
 
 ### 정렬된 배열에서도 Binary Search가 가능한데 BST를 쓰는 이유는?
 
-이미 정려된 배열이라도 사실 Binary Search 가 가능하다.
+이미 정렬된 배열이라도 사실 Binary Search 가 가능하다.
 
 ```
 1 2 5 7 9 10 
