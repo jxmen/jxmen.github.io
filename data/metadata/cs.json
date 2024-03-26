@@ -9,6 +9,7 @@
  "children": [
   "cs/algorithm",
   "cs/concurrency-issue",
+  "cs/data-structure",
   "cs/database",
   "cs/network",
   "cs/os"
