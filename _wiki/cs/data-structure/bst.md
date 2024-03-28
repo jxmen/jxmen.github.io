@@ -3,7 +3,7 @@ layout  : wiki
 title   : Binary Search Tree 
 summary : 
 date    : 2024-03-26 16:12:07 +0900
-updated : 2024-03-26 17:55:11 +0900
+updated : 2024-03-28 19:39:09 +0900
 tag     : 
 toc     : true
 public  : true
@@ -49,7 +49,7 @@ N개의 노드가 밸런싱되어 꽉찬 경우에도 시간복잡도는 `O(logN
 
 하지만 배열은 삽입/삭제 등은 기존에 저장된 데이터를 밀어내는 과정이 추가로 필요하므로 `O(N)`의 시간복잡도를 가지게 된다.
 
-BST는 삽입/삭제 역시 `O(logN)`만에 수행할 수 있기 때문에 효과적이다. (연결된 노드를 끊어버리기만 하면 된다.)
+BST는 삽입/삭제 역시 평균적으로 `O(logN)`만에 수행할 수 있기 때문에 효과적이다. 
 
 ### BST의 삭제
 
@@ -99,12 +99,42 @@ BST는 삽입/삭제 역시 `O(logN)`만에 수행할 수 있기 때문에 효�
 - AVL Tree
 - Red-Black Tree
 
+### AVL Tree
+
+`balance factor`라는 것을 통해 스스로 균형을 유지한다. balance factor란 어떠한 노드의 왼쪽 서브트리와 오른쪽 서브트리의 값 차이를 말한다. 
+
+모든 노드의 balance factor가 {-1, 0, 1}을 충족할 때 AVL Tree가 된다. 밸런스 팩터 체크는 트리의 삽입 혹은 삭제 후 균형을 맞추는 작업을 진행하게 된다.
+
+```
+50           
+ \          70
+  70  ->   /  \
+   \      50  90
+    90
+```
+
+balance factor 동작 시 AVL Tree를 만족하면서도 BST를 만족해야 한다. 예를 들어 오른쪽-왼쪽으로 꺾인 트리의 경우는 다음 과정을 통해 균형을 맞추게 된다.
+
+```
+50      50       
+ \       \          60
+ 70 ->   60  ->    /  \
+ /        \       50  70
+60        70
+```
+
+AVL Tree는 밸런스를 스스로 잡게 되므로, 기존 BST 최악의 경우 `O(N)`의 시간복잡도를 `O(logN)`으로 개선한다. 다만 밸런스 팩터 동작 과정에서 루트 노드까지 탐색을 하는 과정이 있어 이러한 시간이 걸리는 것도 고려해야 한다.
+
 ### 참고자료
 
 - [코맹탈출 - 자료구조 Binary Search Tree](https://www.youtube.com/watch?v=wQwB5gdnEDg)
+- [쉬운코드 - AVL 트리](https://www.youtube.com/watch?v=syGPNOhsnI4)
 
 ### ToDo
 
-- [ ] AVL Tree
+- [X] AVL Tree
 - [ ] Red-Black Tree
+
+### 각주
+[^1]: 교과서적인 용어로는 `rotate`라고 한다.
 
