@@ -3,7 +3,7 @@ layout  : wiki
 title   : Binary Search Tree 
 summary : 
 date    : 2024-03-26 16:12:07 +0900
-updated : 2024-03-28 19:39:09 +0900
+updated : 2024-03-29 01:50:00 +0900
 tag     : 
 toc     : true
 public  : true
@@ -125,15 +125,16 @@ balance factor 동작 시 AVL Tree를 만족하면서도 BST를 만족해야 한
 
 AVL Tree는 밸런스를 스스로 잡게 되므로, 기존 BST 최악의 경우 `O(N)`의 시간복잡도를 `O(logN)`으로 개선한다. 다만 밸런스 팩터 동작 과정에서 루트 노드까지 탐색을 하는 과정이 있어 이러한 시간이 걸리는 것도 고려해야 한다.
 
+### Red-Black Tree
+
+root 노드 black부터 시작하여 black의 자식은 red, 그 자식은 다시 black 번갈아가면서 트리 형태를 유지하는 BST의 일종이다. NULL 대신 nill 노드를 사용한다는 특징이 있다.
+
+![red-black tree]( /resource//0ccc3561-9cfe-4d06-8429-c0d6c7a19aa5.png )
+
 ### 참고자료
 
 - [코맹탈출 - 자료구조 Binary Search Tree](https://www.youtube.com/watch?v=wQwB5gdnEDg)
 - [쉬운코드 - AVL 트리](https://www.youtube.com/watch?v=syGPNOhsnI4)
-
-### ToDo
-
-- [X] AVL Tree
-- [ ] Red-Black Tree
 
 ### 각주
 [^1]: 교과서적인 용어로는 `rotate`라고 한다.
