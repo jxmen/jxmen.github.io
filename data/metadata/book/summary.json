@@ -7,6 +7,7 @@
  "updated": "2024-03-25 14:02:51 +0900",
  "resource": "F34E3BB4-D6F9-40C4-9500-F0B1B96CFE2C",
  "children": [
+  "book/summary/http-guide",
   "book/summary/object"
  ]
 }
