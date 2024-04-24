@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-04-18 18:09:07 +0900
+updated : 2024-04-24 16:02:59 +0900
 tag     : http
 toc     : true
 public  : true
@@ -310,6 +310,8 @@ HTTP/1.1은 지속 커넥션을 통해서 요청을 파이프라이닝할 수 �
 
 - 일반적으로는 자신의 출력 채널을 먼저 끊고 (절반 끊기) 다른 쪽에 있는 기기의 출력 채널이 끊기는 것을 기다리는 것
 
+## 2부 - HTTP 아키텍처
+
 ### 5. 웹 서버
 
 웹 서버
@@ -328,6 +330,57 @@ sequenceDiagram
   s->>i: IP, PORT로 식별자 정보 요청
   i->>s: ident 정보 응답 -  4236,80:UNSERID:UNIX:mary
 ```
+
+### 6. 프락시
+
+프락시는 요청을 가로채는 중개인으로써 **보안, 캐시, 성능 개선** 등 다양한 용도로 활용된다.
+
+프락시와 게이트웨이의 차이
+- 프락시는 클라이언트와 서버가 동일한 프로토콜을 사용한다.
+
+```mermaid!
+sequenceDiagram
+  participant c as Client(HTTP)
+  participant p as Proxy(HTTP)
+  participant s as Server(HTTP)
+  
+  c->>p: HTTP
+  p->>s: HTTP
+  s->>p: HTTP
+  p->>c: HTTP
+```
+- 게이트웨이는 보통 **다른 프로토콜을 변환**하기 위해 사용한다.
+	
+```mermaid!
+sequenceDiagram
+  participant c as Client(HTTP)
+  participant g as GateWay(HTTP/FTP 게이트웨이)
+  participant s as Server(FTP)
+  
+  c->>g: HTTP
+  g->>s: FTP
+  s->>g: FTP
+  g->>c: HTTP
+```
+
+`Via` 헤더와 `Server` 헤더
+- `Via` 헤더는 어떤 경유지들을 지나가는지 나타내는 정보이다. 쉼표로 구분되어 나타난다.
+  ```
+  Via: 1.1 proxy1.com, 1.1 proxy2.com
+  ```
+- `Server`헤더는 원 서버가 사용하는 소프트웨어를 알려준다. 프록시는 이 값을 수정해서는 안된다.
+  ```
+  Server: Apache/1.3.14 (Unix) PHP/4.0.4
+  ```
+
+TRACE 메서드
+> HTTP/1.1의 TRACE 메서드는 요청 메시지를 프락시의 연쇄를 따라가면서 어떤 프락시를 지나가고 어떻게 각 프락시가 요청 메시지를 수정하는지 관찰/추적할 수 있도록 해준다. TRACE는 프락시 흐름을 **디버깅**하는데 매우 유용하다.
+
+- TRACE가 무한으로 빠지는 것을 방지하기 위해 `Max-Forwards` 헤더를 사용해 거쳐갈 프락시 개수를 제한할 수 있다. 이 값은 다음 프락시로 넘어갈때 마다 한개씩 감소한다.
+	
+OPTIONS 메서드
+
+- 웹 서버나 웹 서버의 특정 리소스가 어떤 기능을 지원하는지 볼 수 있다. 경로 지정시에는 해당 경로에 대한 기능을 볼 수 있고, 별표(`*`) 지정시 모두 확인이 가능하다.
 
 ## 각주
 
