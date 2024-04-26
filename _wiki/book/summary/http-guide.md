@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-04-24 16:02:59 +0900
+updated : 2024-04-26 16:42:47 +0900
 tag     : http
 toc     : true
 public  : true
@@ -381,6 +381,28 @@ TRACE 메서드
 OPTIONS 메서드
 
 - 웹 서버나 웹 서버의 특정 리소스가 어떤 기능을 지원하는지 볼 수 있다. 경로 지정시에는 해당 경로에 대한 기능을 볼 수 있고, 별표(`*`) 지정시 모두 확인이 가능하다.
+	
+### 7. 캐시
+
+**웹 캐시**는 자주 쓰이는 문서의 사본을 자동으로 저장하는 HTTP 장치다. 원 서버의 요청을 줄이고 네트워크 비용, 병목을 줄여준다.
+
+신선도 검사 (HTTP 재검사)
+- 가지고 있는 캐시 데이터가 원 서버의 데이터와 일치하는지 확인하는 과정이다. 주로 `If-Not-Modified` 헤더를 많이 사용한다.
+	```mermaid!
+	sequenceDiagram
+
+	participant c as client
+	participant cache as cache
+	participant s as server
+
+	c->>cache: 문서 요청
+	cache->>s: 문서가 최신인가? (If-Not-Modified 헤더와 함께 요청)
+	s->>cache: (최신) 304 Not Modified 응답
+	s->>cache: (삭제시) 404 Not Found 응답
+	s->>cache: (변경시) 200 OK 응답
+	Note right of cache: (변경시) 변경된 사본 저장
+	cache->>c: 문서 응답
+	```
 
 ## 각주
 
