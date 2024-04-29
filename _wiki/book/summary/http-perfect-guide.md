@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-04-29 20:12:21 +0900
+updated : 2024-04-29 20:23:31 +0900
 tag     : http
 toc     : true
 public  : true
@@ -403,6 +403,19 @@ OPTIONS 메서드
 	Note right of cache: (변경시) 변경된 사본 저장
 	cache->>c: 문서 응답
 	```
+	- `If-Modified-Since <캐시된 마지막 수정일>`
+		- 변경되지 않았을 경우 `304 Not Modified`와 함께 `Expires`헤더에 만료일 응답
+	- `If-None-Match <Tag명>`
+		- 서버가 가지고 있는 것이 동일할 경우 `304 Not Modified`와 함께 `ETag`헤더로 태그명을 같이 응답
+			
+캐시 제어
+
+- `Cache-Control`헤더 값에 따라서 캐시를 어떻게 제어하는지를 정의한다.
+	- `no-store`: 캐시 금지
+	- `no-cache`: 서버와 재검사 반드시 필요, 단 로컬에는 데이터 저장
+		- HTTP/1.0+ 에 대응하기 위해서는 `Pragma: no-cache`도 추가해야 함
+	- `must-revalidate`: 신선하지 않을 경우 원 서버와 최초 검사 진행
+	- `max-age`: 캐시를 몇초동안 사용할 것인지 지정
 
 ## 각주
 
