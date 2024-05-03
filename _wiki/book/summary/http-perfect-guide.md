@@ -3,13 +3,14 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-05-01 14:35:37 +0900
+updated : 2024-05-03 15:06:32 +0900
 tag     : http
 toc     : true
 public  : true
 parent  : [[/book/summary]] 
 latex   : false
 resource: D0733664-A4C6-41F6-9EC6-591A4C32C6F3
+
 ---
 * TOC
 {:toc}
@@ -76,7 +77,6 @@ HTTP/1.1 명세는 1999년 RFC 2616이었으나, 2014년 6월에 RFC 7230~7235�
 
 ```
 GET /index.html
----
 Accept: text/*
 
 ```
@@ -87,7 +87,6 @@ Accept: text/*
 
 ```
 HTTP/1.1 200 OK
----
 Content-type: text/html
 
 ---
@@ -424,6 +423,12 @@ HTTP/2.0은 구글에서 개발하던 SPDY 프로토콜을 모티브로 개발�
 하나의 커넥션에서 여러 요청을 주고 받을 수 있게 되며, 헤더 압축으로 인한 대역폭 절약, 서버가 리소스를 능동적으로 푸시하는 등의 기능을 갖추고 있다.
 
 이 모든 기술들은 기존 HTTP/1.1의 **회전 지연**을 줄이기 위한 것이다.
+
+## 3부 - 식별, 인가, 보안
+
+### 11. 클라이언트 식별과 쿠키
+
+`쿠키`는 사용자를 식별하기 위해 지금까지 가장 많이 사용하는 방식이다.
 
 ## 각주
 
