@@ -1,0 +1,12 @@
+{
+ "type": "wiki",
+ "title": "리뷰",
+ "summary": "책을 읽고 느낀점, 인사이트를 정리한다.",
+ "parent": "book",
+ "url": "/wiki/book/review",
+ "updated": "2024-05-07 16:25:26 +0900",
+ "resource": "8E7B2C71-4069-42DB-B8E0-BA573F60983D",
+ "children": [
+  "book/review/programmers-brain"
+ ]
+}

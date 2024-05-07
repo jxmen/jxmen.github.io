@@ -5,7 +5,7 @@
  },
  {
   "name": "book",
-  "size": 1
+  "size": 3
  },
  {
   "name": "command",
@@ -70,6 +70,10 @@
  {
   "name": "project",
   "size": 4
+ },
+ {
+  "name": "review",
+  "size": 1
  },
  {
   "name": "setting",

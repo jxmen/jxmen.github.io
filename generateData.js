@@ -215,7 +215,7 @@ function saveToFile(fileLocation, dataString, isPrintWhenSuccess) {
 }
 
 function parseInfo(file, info) {
-    if (info === null) {
+    if (info === null || info === undefined) {
         return undefined;
     }
 
