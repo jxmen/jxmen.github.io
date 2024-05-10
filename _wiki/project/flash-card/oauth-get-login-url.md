@@ -4,10 +4,10 @@ title   : OAuth Login URL API 요청 과정 트러블슈팅
 summary : 
 date    : 2024-04-27 12:27:37 +0900
 updated : 2024-04-27 14:02:09 +0900
-tag     : http 
+tag     : http trouble-shooting 
 toc     : true
 public  : true
-parent  : [[/project/flash-card/trouble-shooting]] 
+parent  : [[/project/flash-card]] 
 latex   : false
 resource: C5CBA1A3-EFC7-4EC2-A775-10C3454C2787
 ---
