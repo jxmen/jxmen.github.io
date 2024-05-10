@@ -7,7 +7,7 @@ updated : 2024-05-10 11:41:39 +0900
 tag : productivity nvim lazyvim leetcode
 toc : true
 public : true
-parent : [[/index/productivity]]
+parent : [[/productivity]]
 latex : false
 resource: B4BAAFD9-778F-4406-9DCA-3E6708A7E41C
 ---

@@ -2,7 +2,7 @@
  "type": "wiki",
  "title": "neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자",
  "summary": "",
- "parent": "index/productivity",
+ "parent": "productivity",
  "url": "/wiki/productivity/nvim-leetcode",
  "updated": "2024-05-10 11:41:39 +0900",
  "resource": "B4BAAFD9-778F-4406-9DCA-3E6708A7E41C",
