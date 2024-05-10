@@ -48,12 +48,24 @@
   "size": 2
  },
  {
+  "name": "lazyvim",
+  "size": 1
+ },
+ {
+  "name": "leetcode",
+  "size": 1
+ },
+ {
   "name": "mac",
   "size": 2
  },
  {
   "name": "network",
   "size": 1
+ },
+ {
+  "name": "nvim",
+  "size": 2
  },
  {
   "name": "oop",
@@ -66,6 +78,10 @@
  {
   "name": "pattern",
   "size": 5
+ },
+ {
+  "name": "productivity",
+  "size": 1
  },
  {
   "name": "project",
@@ -97,6 +113,10 @@
  },
  {
   "name": "transaction",
+  "size": 1
+ },
+ {
+  "name": "vim,",
   "size": 1
  }
 ]
