@@ -484,7 +484,7 @@ HTTPS는 클라이언트와 서버가 주고받는 데이터를 **암호화**함
 
 이로 인해 해시값이 탈취당할 경우, 암호화된 메시지 역시 복호화를 통해 어떠한 내용인지 알아낼 수 있는 단점이 있다.
 
-```mermaid
+```mermaid!
 sequenceDiagram
 
 participant c as client
@@ -496,7 +496,7 @@ s-->s: 동일한 키 e로 복호화
 ```
 공개키(=비대칭키)는 암호화는 공개된 키를 통해 암호화를 하되, 복호화는 각자 개인이 가진 개인키를 통해 하는 방식을 의미한다.
 
-```mermaid
+```mermaid!
 sequenceDiagram
 
 participant c as client
