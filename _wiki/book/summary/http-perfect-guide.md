@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-05-07 11:58:36 +0900
+updated : 2024-05-11 23:06:36 +0900
 tag     : http
 toc     : true
 public  : true
@@ -510,6 +510,8 @@ s-->s: 개인키 private-e로 복호화
 #### RSA
 
 #### 디지털 서명
+
+#### 인증서
 
 #### SSL 핸드셰이크
 
