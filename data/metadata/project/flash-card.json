@@ -9,7 +9,6 @@
  "children": [
   "project/flash-card/intro",
   "project/flash-card/oauth-get-login-url",
-  "project/flash-card/tools",
-  "project/flash-card/trouble-shooting"
+  "project/flash-card/tools"
  ]
 }
