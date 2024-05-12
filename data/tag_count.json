@@ -60,12 +60,16 @@
   "size": 2
  },
  {
+  "name": "neovim",
+  "size": 1
+ },
+ {
   "name": "network",
   "size": 1
  },
  {
   "name": "nvim",
-  "size": 2
+  "size": 3
  },
  {
   "name": "oop",
@@ -121,6 +125,10 @@
  },
  {
   "name": "trouble-shooting",
+  "size": 1
+ },
+ {
+  "name": "vim",
   "size": 1
  },
  {
