@@ -14,9 +14,9 @@ resource: A0171044-4D51-48BF-A9E8-378C8A4E6904
 * TOC
 {:toc}
 
-선택한 부분 클립보드로 붙여넣기 - `'<,'>w !pbcopy`
+선택한 부분 클립보드로 붙여넣기 - `'<,'>w !pbcopy` [^1]
 
-### Reference
+### 각주
 
-- [Neovim으로 생산성 퀀텀점프하기(그리고 다루지 못했던 얘기)](https://www.youtube.com/watch?v=DAtLK9AvspI&t=2182s)
+[^1]: 출처: [Neovim으로 생산성 퀀텀점프하기(그리고 다루지 못했던 얘기)](https://www.youtube.com/watch?v=DAtLK9AvspI&t=2182s)
  
