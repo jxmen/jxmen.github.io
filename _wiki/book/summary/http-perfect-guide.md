@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-05-13 15:03:36 +0900
+updated : 2024-05-14 23:03:36 +0900
 tag     : http
 toc     : true
 public  : true
@@ -461,8 +461,6 @@ participant s as server
 - 평문으로 인증 정보가 저장된다.
 - 프록시가 존재할 경우 내용이 변질될 가능성이 있다.
 - 가짜 서버의 위장에 취약하다.
-
-## 4장
 
 ### 14. HTTPS
 
