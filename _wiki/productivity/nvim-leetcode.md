@@ -63,7 +63,11 @@ lua 스크립트를 저장하고 nvim 명령어만 입력하면 lazyvim이 알�
   - SQL이 오히려 터미널에서만 풀기에 적합하다고 생각했는데, 왜 지원하지 않는지는 찾아보아야 할 것 같다.
 - Tree Visualizer 같은 부가적인 기능을 지원하지 않는다.
   - Tree 문제의 경우 릿코드 사이트에서는 배열만 입력해도 트리가 어떻게 구성되어 있는지 알려주는데, 이 부분이 없어서 조금 아쉽다.
-- [leethub](https://chromewebstore.google.com/detail/leethub-v2/mhanfgfagplhgemhjfeolkkdidbakocm)처럼 문제를 풀었을 때 자동으로 github commit이 되는 기능을 지원하지 않는다.
+- **문제가 어떤 tag들을 가지고 있는지 지원하지 않는다.**
+  - 특정 주제에 대해 공부하고 있다면 해당 주제의 문제 위주로 푸는 것이 좋다고 생각되어 아쉽다.
+- **StudyPlan 코스 문제 목록을 지원하지 않는다.**
+  - 모든 문제를 마구잡이로 푸는 것보다는 핵심 기출 문제만 풀면 된다고 생각하는데, 이로 인해 [https://leetcode.com/studyplan/top-interview-150/](leetcode.com)과 이 플러그인을 계속 왔다갔다 해야한다.
+- **[leethub](https://chromewebstore.google.com/detail/leethub-v2/mhanfgfagplhgemhjfeolkkdidbakocm)처럼 문제를 풀었을 때 자동으로 github commit이 되는 기능을 지원하지 않는다.**
   - 내가 요새 잔디심기에 관심이 있어, 이 기능이 없어서 좀 아쉽다.
 
 ### 각주
