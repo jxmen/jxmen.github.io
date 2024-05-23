@@ -89,7 +89,7 @@
  },
  {
   "name": "project",
-  "size": 4
+  "size": 2
  },
  {
   "name": "review",
@@ -97,10 +97,6 @@
  },
  {
   "name": "rfc",
-  "size": 1
- },
- {
-  "name": "setting",
   "size": 1
  },
  {
