@@ -520,6 +520,30 @@ s-->s: 개인키 private-e로 복호화
 
 SSL은 복잡한 바이너리 프로토콜이므로, 암호학 전문가가 아닌 이상은 [OpenSSL](https://openssl.org)등의 SSL 오픈소스 구현체를 쓰는 것이 바람직하다.
 
+## 4장 - 엔터티, 인코딩, 국제화
+
+### 15. 엔터티와 인코딩
+
+#### Content-Length 헤더와 지속 연결
+
+Content-Length는 지속 연결을 사용 시 어디까지가 응답 메시지인지 구별하기 위해서 사용되므로 굉장히 중요한 요소라고 할 수 있다.
+
+```
+GET /foo HTTP/1.1
+Connection: Keep-Alive // 지속 연결
+Content-Type: text/plain
+Content-Length: 4 // 본문의 길이
+
+bar1
+---
+GET /foo HTTP/1.1
+Connection: Keep-Alive // 지속 연결
+Content-Type: text/plain
+Content-Length: 4 // 본문의 길이
+
+bar2
+```
+
 ## 부록
 
 ### base64 인코딩
