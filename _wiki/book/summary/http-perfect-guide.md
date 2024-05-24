@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-05-20 23:14:21 +0900
+updated : 2024-05-24 14:41:21 +0900
 tag     : http
 toc     : true
 public  : true
