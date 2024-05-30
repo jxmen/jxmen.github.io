@@ -1,4 +1,5 @@
 [
  "kotlin",
+ "kotlin/coroutines",
  "kotlin/kotlin-koans"
 ]
