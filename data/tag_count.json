@@ -5,7 +5,7 @@
  },
  {
   "name": "book",
-  "size": 3
+  "size": 4
  },
  {
   "name": "command",
@@ -37,7 +37,7 @@
  },
  {
   "name": "http",
-  "size": 3
+  "size": 4
  },
  {
   "name": "io",
@@ -97,7 +97,7 @@
  },
  {
   "name": "review",
-  "size": 1
+  "size": 2
  },
  {
   "name": "rfc",
