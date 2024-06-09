@@ -1,0 +1,12 @@
+{
+ "type": "wiki",
+ "title": "Kotlin",
+ "summary": "",
+ "parent": "index",
+ "url": "/wiki/kotlin",
+ "updated": "2024-02-11 02:20:49 +0900",
+ "resource": "0DD98A59-3F6D-4947-8A4E-2851F8BE4C61",
+ "children": [
+  "kotlin/kotlin-koans"
+ ]
+}

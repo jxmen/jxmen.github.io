@@ -1,0 +1,13 @@
+{
+ "type": "wiki",
+ "title": "책 요약",
+ "summary": "",
+ "parent": "book",
+ "url": "/wiki/book/summary",
+ "updated": "2024-03-25 14:02:51 +0900",
+ "resource": "F34E3BB4-D6F9-40C4-9500-F0B1B96CFE2C",
+ "children": [
+  "book/summary/http-perfect-guide",
+  "book/summary/object"
+ ]
+}

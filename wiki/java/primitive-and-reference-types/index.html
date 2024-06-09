@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>프리미티브 타입과 레퍼런스 타입 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/java/primitive-and-reference-types/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="프리미티브 타입과 레퍼런스 타입">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/java/primitive-and-reference-types/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/java/primitive-and-reference-types/" />
+        <meta name="twitter:title" content="프리미티브 타입과 레퍼런스 타입" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="java/primitive-and-reference-types">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/java/primitive-and-reference-types/"> 프리미티브 타입과 레퍼런스 타입 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/java/primitive-and-reference-types.md" target="_blank">created: 2024.02.09</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/java/primitive-and-reference-types.md" target="_blank">updated: 2024.02.10</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/java/primitive-and-reference-types.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C+%ED%83%80%EC%9E%85%EA%B3%BC+%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4+%ED%83%80%EC%9E%85&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    java
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%ED%83%80%EC%9E%85" id="markdown-toc-프리미티브-타입">프리미티브 타입</a></li>
+  <li><a href="#%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4-%ED%83%80%EC%9E%85" id="markdown-toc-레퍼런스-타입">레퍼런스 타입</a></li>
+  <li><a href="#%ED%94%84%EB%A6%AC%EB%AF%B8%ED%8B%B0%EB%B8%8C-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%A0%88%ED%8D%BC%EB%9F%B0%EC%8A%A4-%ED%83%80%EC%9E%85%EC%9D%98-%ED%81%AC%EA%B8%B0" id="markdown-toc-프리미티브-타입과-레퍼런스-타입의-크기">프리미티브 타입과 레퍼런스 타입의 크기</a></li>
+  <li><a href="#%EB%B6%80%EB%A1%9D-integercache" id="markdown-toc-부록-integercache">(부록) IntegerCache</a></li>
+  <li><a href="#%EC%B0%B8%EA%B3%A0-%EB%AC%B8%EC%84%9C" id="markdown-toc-참고-문서">참고 문서</a></li>
+  <li><a href="#%EC%A3%BC%EC%84%9D" id="markdown-toc-주석">주석</a></li>
+</ul>
+
+<h3 id="프리미티브-타입">프리미티브 타입</h3>
+
+<p>프리미티브(원시) 타입은 메모리 상에 <strong>실제 값</strong>을 저장하고 데이터의 크기가 정해져 있는 타입들을 의미한다.</p>
+
+<p>대표적으로 <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">char</code>, <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">float</code>등이 있을 것이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// 4바이트</span>
+</code></pre></div></div>
+
+<h3 id="레퍼런스-타입">레퍼런스 타입</h3>
+
+<p>레퍼런스 타입은 데이터의 값을 저장하는 것이 아닌 <strong>데이터가 가리키는 주소값</strong>을 저장하는 데이터 타입이다.</p>
+
+<p>new로 생성된 데이터 타입, 프리미티브 타입의 wrapper 클래스 등이 해당된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+	
+	<span class="n">constructor</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="k">new</span> <span class="nf">Person</span><span class="o">(</span><span class="mi">25</span><span class="o">);</span> <span class="c1">// 8바이트(64비트 운영체제시) + int(4바이트)의 공간 차지</span>
+</code></pre></div></div>
+
+<h3 id="프리미티브-타입과-레퍼런스-타입의-크기">프리미티브 타입과 레퍼런스 타입의 크기</h3>
+
+<p>프리미티브 타입이 차지하는 데이터 타입의 크기는 다음과 같다. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>1byte</th>
+      <th>2byte</th>
+      <th>4byte</th>
+      <th>8byte</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>논리형</td>
+      <td>boolean</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>문자형</td>
+      <td> </td>
+      <td>char</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>정수형</td>
+      <td>byte</td>
+      <td>short</td>
+      <td>int</td>
+      <td>long</td>
+    </tr>
+    <tr>
+      <td>실수형</td>
+      <td> </td>
+      <td> </td>
+      <td>float</td>
+      <td>double</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>레퍼런스 타입이 차지하는 데이터 타입의 크기는 운영체제가 메모리를 얼마나 차지하느냐에 따라 달라진다.</p>
+
+<p>32비트 운영체제에서는 4바이트, 64비트 운영체제에서는 8바이트를 차지할 것이다.</p>
+
+<h3 id="부록-integercache">(부록) IntegerCache</h3>
+
+<p>앞서 말했듯 Integer도 레퍼런스 타입이다.</p>
+
+<p>하지만, Java에서 127을 Integer를 서로 동치성 비교를 하면, 같은 값이 나오는 것을 확인할 수 있다. 아래의 테스트 코드를 보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ParameterizedTest</span>
+<span class="nd">@ValueSource</span><span class="o">(</span><span class="n">ints</span> <span class="o">=</span> <span class="o">{</span> <span class="mi">127</span><span class="o">,</span> <span class="o">-</span><span class="mi">127</span> <span class="o">})</span>
+<span class="kt">void</span> <span class="n">_127_Integer는_비교시_true를_반환한다</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nc">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+	<span class="nc">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+
+	<span class="k">assert</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Integer로 변환함에 따라 <code class="language-plaintext highlighter-rouge">Integer.valueOf(value)</code>로 오토박싱이 일어났다는 것을 유의하자.</li>
+</ul>
+
+<p>위의 테스트 코드는 통과한다. 하지만 여기서 해당 값을 벗어나는 값에서는 <code class="language-plaintext highlighter-rouge">a == b</code>가 faslse를 리턴한다.</p>
+
+<p>해당 현상이 발생하는 이유는, Integer 내부 클래스를 들여다보면 <code class="language-plaintext highlighter-rouge">IntegerCache</code>라는 Inner Class가 자주 쓰는 int 값들을 캐싱하고 있기 때문이다.</p>
+
+<p>해당 캐시 지정값은 JVM 옵션을 통해 수정이 가능하다.</p>
+
+<h3 id="참고-문서">참고 문서</h3>
+<ul>
+  <li><a href="https://meetup.nhncloud.com/posts/185">Java Integer.valueOf(127) == Integer.valueOf(127) 는 참일까요?</a></li>
+</ul>
+
+<h3 id="주석">주석</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>자바의 정석 p29 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

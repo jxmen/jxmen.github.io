@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>동시성 이슈 - 박주영의 위키</title>
+
+    <meta name="description" content="동시성 이슈와 문제 해결 사례 정리">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/cs/concurrency-issue/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="동시성 이슈">
+    <meta property="og:description" content="동시성 이슈와 문제 해결 사례 정리">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/cs/concurrency-issue/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/cs/concurrency-issue/" />
+        <meta name="twitter:title" content="동시성 이슈" />
+        <meta name="twitter:description" content="동시성 이슈와 문제 해결 사례 정리" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/concurrency-issue">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/cs/concurrency-issue/"> 동시성 이슈 </a>
+        </h1>
+    
+        <p class="title-summary">동시성 이슈와 문제 해결 사례 정리</p>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/concurrency-issue.md" target="_blank">created: 2024.02.19</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/concurrency-issue.md" target="_blank">updated: 2024.02.21</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/concurrency-issue.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=%EB%8F%99%EC%8B%9C%EC%84%B1+%EC%9D%B4%EC%8A%88&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88%EB%9E%80" id="markdown-toc-동시성-이슈란">동시성 이슈란</a></li>
+  <li><a href="#%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EA%B2%A9%EB%A6%AC-%EB%A0%88%EB%B2%A8" id="markdown-toc-트랜잭션-격리-레벨">트랜잭션 격리 레벨</a></li>
+  <li><a href="#database-lock" id="markdown-toc-database-lock">Database Lock</a></li>
+  <li><a href="#%EC%8A%A4%EB%A0%88%EB%93%9C-%EB%8F%99%EA%B8%B0%ED%99%94" id="markdown-toc-스레드-동기화">스레드 동기화</a></li>
+  <li>
+<a href="#%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%9D%B4%EC%8A%88-%ED%85%8C%EC%8A%A4%ED%8A%B8" id="markdown-toc-동시성-이슈-테스트">동시성 이슈 테스트</a>    <ul>
+      <li><a href="#java---multi-thread" id="markdown-toc-java---multi-thread">Java - Multi Thread</a></li>
+      <li><a href="#jmeter%EB%A5%BC-%ED%86%B5%ED%95%B4-%EB%8F%99%EC%8B%9C%EC%97%90-api-%EC%84%B1%EB%8A%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8" id="markdown-toc-jmeter를-통해-동시에-api-성능-테스트">Jmeter를 통해 동시에 API 성능 테스트</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="동시성-이슈란">동시성 이슈란</h3>
+
+<p>동시성 이슈는 주로 멀티 스레드 환경에서 여러 스레드가 동시에 변경 가능한 데이터를 접근하고 변경할 때 데이터 불일치가 발생하는 현상을 의미한다.</p>
+
+<p>주로 스레드에서 동기화되지 않은 데이터를 읽은 후 해당 값을 업데이트하는 경우에 발생한다.</p>
+
+<p>선착순 이벤트를 시작했다면 사용자의 요청이 순간적으로 물밀듯이 쏟아질 것이다. 혹은 흔히 말하는 '따닥'으로 API 호출이 중복으로 발생되는 경우를 방지해야 한다. 특히 돈과 관련된 정보일수록 이러한 동시성 이슈에 대응하는 것은 중요할 것이다.</p>
+
+<h3 id="트랜잭션-격리-레벨">트랜잭션 격리 레벨</h3>
+
+<p>데이터베이스 트랜잭션 격리 레벨을 어떻게 설정하느냐에 따라 여러 동시성 이슈가 발생할 수 있다.</p>
+
+<h3 id="database-lock">Database Lock</h3>
+
+<p>데이터베이스 락을 통해서도 동시성 제어가 가능하다.</p>
+
+<p>다만 락의 경우 데이터 일관성을 보장해 줄 순 있지만 트래픽이 늘어나면 성능 저하도 우려될 수 있다.</p>
+
+<p>MySQL에서는 <code class="language-plaintext highlighter-rouge">select ... for update</code> 라는 구문을 통해 해당 행을 비관적 락(Pessimistic Lock)을 걸도록 사용할 수도 있다.</p>
+
+<p>그 외에 낙관적 락에 대해서도 존재한다.</p>
+
+<h3 id="스레드-동기화">스레드 동기화</h3>
+
+<p>데이터에 접근하거나 변경시에 해당 영역이나 메서드를 하나의 스레드만 접근 가능하도록 제어하는 것도 가능하다. Java의 경우 <code class="language-plaintext highlighter-rouge">synchronized</code> 키워드를 통해 제어한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 하나의 스레드만 메서드에 접근 가능</span>
+<span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">updateCount</span><span class="o">(</span><span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="동시성-이슈-테스트">동시성 이슈 테스트</h3>
+
+<h4 id="java---multi-thread">Java - Multi Thread</h4>
+
+<p>Java에서는 병렬 프로그래밍 지원을 위해 <code class="language-plaintext highlighter-rouge">java.util.concurrent</code>라는 패키지를 제공한다.</p>
+
+<p>Java에서 여러 스레드를 만들고 스레드들이 동시에 작업을 수행하는 식으로 동시성 이슈를 테스트할 수 있다.</p>
+
+<p>다음은 <code class="language-plaintext highlighter-rouge">ThreadPoolExecutor</code>를 사용한 예제이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">AssertionsForClassTypes</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExecutorServiceTest</span> <span class="o">{</span>
+
+	<span class="nd">@Test</span>
+	<span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">nThread</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+		<span class="nc">ExecutorService</span> <span class="n">executor</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="n">nThread</span><span class="o">);</span>
+		<span class="nc">Counter</span> <span class="n">counter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Counter</span><span class="o">();</span>
+
+		<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nThread</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+			<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+				 <span class="n">executor</span><span class="o">.</span><span class="na">execute</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="n">counter</span><span class="o">.</span><span class="na">increase</span><span class="o">();</span> <span class="o">});</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+
+		<span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span> <span class="c1">// 메인 스레드가 종료되지 않도록 대기한다.</span>
+
+		<span class="n">assertThat</span><span class="o">(</span><span class="n">counter</span><span class="o">.</span><span class="na">getCount</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">30</span> <span class="o">*</span> <span class="mi">100</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">static</span> <span class="kd">class</span> <span class="nc">Counter</span> <span class="o">{</span>
+		<span class="kd">private</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+		<span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">increase</span><span class="o">()</span> <span class="o">{</span>
+			<span class="n">count</span><span class="o">++;</span>
+		<span class="o">}</span>
+
+		<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCount</span><span class="o">()</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>만약 Spring을 사용중이라면 Service레이어의 코드를 여러번 호출하여 내가 원하는대로 동작하는지 검증할 수 있을 것이다.</li>
+</ul>
+
+<h4 id="jmeter를-통해-동시에-api-성능-테스트">Jmeter를 통해 동시에 API 성능 테스트</h4>
+
+<p><a href="https://github.com/apache/jmeter">Jmeter</a>라는 오픈소스를 통해 Http 요청과 ThreadGroup을 만들고 이를 동시에 요청할 수 있도록 할 수 있다.</p>
+
+<p><img src="/resource//9776cd2d-8c9b-4fd9-b485-ddfcfe7ec219.png" alt="jmeter example"></p>
+
+<ul>
+  <li>선착순으로 1명만 성공해야 하는 케이스 Test</li>
+</ul>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

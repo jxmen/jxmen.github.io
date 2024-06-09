@@ -1,0 +1,10 @@
+{
+ "type": "wiki",
+ "title": "tcpdump",
+ "summary": "tcp 패킷 캡처 명령어",
+ "parent": "commands",
+ "url": "/wiki/commands/tcpdump",
+ "updated": "2024-02-29 18:10:25 +0900",
+ "resource": "52A1BEFB-32CE-41AA-A5AE-22940E6E50F0",
+ "children": []
+}

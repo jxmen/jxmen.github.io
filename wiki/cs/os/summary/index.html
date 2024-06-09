@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>운영체제 용어 정리 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/cs/os/summary/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="운영체제 용어 정리">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/cs/os/summary/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/cs/os/summary/" />
+        <meta name="twitter:title" content="운영체제 용어 정리" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/os/summary">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/cs/os/summary/"> 운영체제 용어 정리 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/os/summary.md" target="_blank">created: 2024.02.26</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/os/summary.md" target="_blank">updated: 2024.02.27</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/os/summary.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C+%EC%9A%A9%EC%96%B4+%EC%A0%95%EB%A6%AC&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC" id="markdown-toc-용어-정리">용어 정리</a></li>
+  <li><a href="#%EC%B0%B8%EA%B3%A0" id="markdown-toc-참고">참고</a></li>
+</ul>
+
+<h3 id="용어-정리">용어 정리</h3>
+
+<p>용어만 간단하게 정리한다. 각 용어에 대해서는 추가로 더 공부가 필요하다.</p>
+
+<ul>
+  <li>경쟁 상태 (race condition)
+    <ul>
+      <li>여러 프로세스/스레드가 동시에 데이터 조작 시 타이밍/순서에 따라 결과가 달라질 수 있는 상태</li>
+    </ul>
+  </li>
+  <li>동기화 (synchronization)
+    <ul>
+      <li>여러 프로세스/스레드를 동시에 실행 시 <strong>일관성</strong>을 보장하는 과정</li>
+    </ul>
+  </li>
+  <li>임계 영역 (critical section)
+    <ul>
+      <li>하나의 스레드/프로세스만 접근 가능한 영역</li>
+    </ul>
+  </li>
+  <li>상호 배제 (mutual exclustion)
+    <ul>
+      <li>공유된 자원에 동시에 접근하지 못하도록 하는 것</li>
+      <li>상호 배제 방법
+        <ul>
+          <li>스핀락 (Spin Lock)
+            <ul>
+              <li>락을 획득할 때 까지 계속해서 확인하는 작업
+                <ul>
+                  <li>CPU 낭비가 심한 단점이 있음</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>뮤텍스 (mutex)
+            <ul>
+              <li>락이 준비되었을 때 깨어나도록 대기 작업을 큐에 넣고 처리하는 방법</li>
+            </ul>
+          </li>
+          <li>세마포 (semaphore)
+            <ul>
+              <li>뮤텍스와 유사하지만, 작업 간의 실행 순서를 기록하고 동기화하는 방법</li>
+            </ul>
+          </li>
+          <li>모니터 (monitor)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="참고">참고</h3>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=gTkvX2Awj6g">쉬운코드 유튜브 - 스핀락, 뮤텍스, 세마포</a></li>
+  <li>[운영체제 - 한빛아카데미]</li>
+</ul>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

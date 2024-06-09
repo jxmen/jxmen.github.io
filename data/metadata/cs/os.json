@@ -1,0 +1,14 @@
+{
+ "type": "wiki",
+ "title": "운영체제",
+ "summary": "",
+ "parent": "cs",
+ "url": "/wiki/cs/os",
+ "updated": "2024-02-29 20:05:20 +0900",
+ "resource": "667AC84D-3893-4166-A019-706A33C15DBA",
+ "children": [
+  "cs/os/blocking-io-vs-non-blocking-io",
+  "cs/os/cpu-bound-vs-io-bound",
+  "cs/os/summary"
+ ]
+}

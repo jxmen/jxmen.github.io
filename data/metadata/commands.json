@@ -1,0 +1,13 @@
+{
+ "type": "wiki",
+ "title": "커맨드 명령어 모음",
+ "summary": "",
+ "parent": "index",
+ "url": "/wiki/commands",
+ "updated": "2024-02-11 02:27:01 +0900",
+ "resource": "5DFACFEA-2CC1-4B46-BF8B-AA100A4B9301",
+ "children": [
+  "commands/tcpdump",
+  "commands/tmux"
+ ]
+}

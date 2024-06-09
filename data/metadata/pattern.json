@@ -1,0 +1,15 @@
+{
+ "type": "wiki",
+ "title": "패턴",
+ "summary": "디자인 패턴 포함, 아키텍처 패턴 등",
+ "parent": "index",
+ "url": "/wiki/pattern",
+ "updated": "2024-02-11 21:19:37 +0900",
+ "resource": "FF2CAB15-66C6-4C9E-B277-111D828DA75F",
+ "children": [
+  "pattern/design-pattern",
+  "pattern/observer",
+  "pattern/state",
+  "pattern/strategy"
+ ]
+}

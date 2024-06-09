@@ -1,0 +1,10 @@
+{
+ "type": "wiki",
+ "title": "상태 패턴 (State)",
+ "summary": "객체 내부에서 자신의 상태를 변경한다",
+ "parent": "pattern",
+ "url": "/wiki/pattern/state",
+ "updated": "2024-02-11 17:30:51 +0900",
+ "resource": "4EDE163C-DE85-4BD4-8329-9F5D00700807",
+ "children": []
+}

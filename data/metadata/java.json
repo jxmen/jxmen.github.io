@@ -1,0 +1,13 @@
+{
+ "type": "wiki",
+ "title": "Java",
+ "summary": "",
+ "parent": "index",
+ "url": "/wiki/java",
+ "updated": "2024-02-11 02:20:24 +0900",
+ "resource": "93663695-318C-40F3-8837-2EA2180E6E34",
+ "children": [
+  "java/equals-and-hashCode",
+  "java/primitive-and-reference-types"
+ ]
+}

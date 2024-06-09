@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>운영체제 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/cs/os/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="운영체제">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/cs/os/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/cs/os/" />
+        <meta name="twitter:title" content="운영체제" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/os">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">운영체제</h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/os.md" target="_blank">created: 2024.02.26</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/os.md" target="_blank">updated: 2024.02.29</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/os.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C&body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    os
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#documents" id="markdown-toc-documents">Documents</a></li>
+</ul>
+
+<h2 id="documents">Documents</h2>
+
+
+        <div id="document-list"></div>
+    </article>
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/category.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

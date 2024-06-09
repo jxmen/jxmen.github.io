@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>데이터베이스 용어 정리 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/cs/database/summary/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="데이터베이스 용어 정리">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/cs/database/summary/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/cs/database/summary/" />
+        <meta name="twitter:title" content="데이터베이스 용어 정리" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/database/summary">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/cs/database/summary/"> 데이터베이스 용어 정리 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/database/summary.md" target="_blank">created: 2024.02.26</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/database/summary.md" target="_blank">updated: 2024.02.27</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/database/summary.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4+%EC%9A%A9%EC%96%B4+%EC%A0%95%EB%A6%AC&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    database
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC" id="markdown-toc-용어-정리">용어 정리</a></li>
+  <li><a href="#%EC%B0%B8%EA%B3%A0" id="markdown-toc-참고">참고</a></li>
+</ul>
+
+<h3 id="용어-정리">용어 정리</h3>
+
+<p>용어들만 간단하게 정리</p>
+
+<ul>
+  <li>낙관적 락 (Optimisstic Lock)
+    <ul>
+      <li>데이터 갱신 시 경합이 발생하지 않을 것이라 보는 것</li>
+      <li>버전을 명시하여, 데이터 변경 시 버전 업데이트를 통해 다른 트랜잭션이 업데이트 시도 시 예외 발생</li>
+      <li>어플리케이션에서 롤백을 수동으로 해야 하는 특징이 있으나, 비관적 락에 비해 성능이 더 좋음</li>
+    </ul>
+  </li>
+  <li>비관적 락 (Pessimistic Lock)
+    <ul>
+      <li>동일한 데이터를 동시에 수정할 가능성이 높다고 보고, 무조건 락을 획득할 때 까지 대기해야 하는 잠금</li>
+      <li>베타 락 (Exclusive Lock, X Lock)
+        <ul>
+          <li>쓰기 잠금</li>
+        </ul>
+      </li>
+      <li>공유 락 (Shared Lock, S Lock)
+        <ul>
+          <li>읽기 잠금</li>
+          <li>읽기 잠금이 걸려 있어도 다른 읽기 잠금을 거는 것이 가능하다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>파티셔닝 (partitioning)
+    <ul>
+      <li>데이터베이스 table을 더 작은 table로 나누는 것</li>
+    </ul>
+  </li>
+  <li>수직 분할 (vertical partitioning)
+    <ul>
+      <li>column을 기준으로 table을 나누는 방식</li>
+      <li>정규화도 일종의 vertial partitioning이라고 볼 수 있다.</li>
+      <li>select 문을 수행할 때 특정 컬럼만 지정하는 경우, 모든 열을 메모리에 불러와 잘라내는 형식으로 동작하기에 불필요한 열이 포함될 경우 성능이 저하될 가능성이 있다.</li>
+    </ul>
+  </li>
+  <li>수평 분할 (horizontal partitioning)
+    <ul>
+      <li>row를 기준으로 table을 나누는 방식</li>
+      <li>해시 기반 수평 분할 시, 해시 함수에 넣을 컬럼을 <code class="language-plaintext highlighter-rouge">파티션 키</code>라고 한다.</li>
+    </ul>
+  </li>
+  <li>샤딩 (sharding)
+    <ul>
+      <li>horizontal partition과 유사하게 동작하나, 각 partion들을 독립적인 DB 서버로 분할하는 것.</li>
+      <li>(부하 분산이 목적)</li>
+      <li>독립적으로 나눠진 파티션들을 (shard), 파티션의 키를 샤드 키(shard key) 라고 함</li>
+    </ul>
+  </li>
+  <li>레플리케이션 (replication)
+    <ul>
+      <li>데이터베이스 데이터를 복제하여 여러 보조 서버를 띄우는 것</li>
+      <li>원본 서버는 master/primary/leader 등으로 불리고 복제된 서버는 slave/secondary/replica 등으로 불린다.</li>
+      <li>원본 서버에 장애 발생 시 보조 서버가 원본 서버로 승격하여 고가용성(High availability, HA)을 보장한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="참고">참고</h3>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=ZXV6ZqMyJLg&t=359s">[10분 테코톡] 마루의 데이터베이스 Lock</a></li>
+  <li><a href="https://sabarada.tistory.com/175">https://sabarada.tistory.com/175</a></li>
+  <li><a href="https://www.youtube.com/watch?v=P7LqaEO-nGU&t=8s">쉬운 코드 유튜브 - 파티셔닝,샤딩,레플리케이션</a></li>
+</ul>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

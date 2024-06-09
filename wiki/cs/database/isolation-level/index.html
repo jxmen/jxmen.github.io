@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>Isolation Level 정리 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/cs/database/isolation-level/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Isolation Level 정리">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/cs/database/isolation-level/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/cs/database/isolation-level/" />
+        <meta name="twitter:title" content="Isolation Level 정리" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/database/isolation-level">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/cs/database/isolation-level/"> Isolation Level 정리 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/database/isolation-level.md" target="_blank">created: 2024.02.23</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/database/isolation-level.md" target="_blank">updated: 2024.02.23</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/database/isolation-level.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=Isolation+Level+%EC%A0%95%EB%A6%AC&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    database transaction
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%ED%91%9C%EC%A4%80-sql-%EC%97%90%EC%84%9C%EC%9D%98-isolation-level" id="markdown-toc-표준-sql-에서의-isolation-level">표준 SQL 에서의 Isolation Level</a></li>
+  <li>
+<a href="#%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%EC%9D%98-%EC%9D%B4%EC%83%81-%ED%98%84%EC%83%81" id="markdown-toc-트랜잭션의-이상-현상">트랜잭션의 이상 현상</a>    <ul>
+      <li><a href="#dirty-read" id="markdown-toc-dirty-read">Dirty Read</a></li>
+      <li><a href="#non-repeatable-read" id="markdown-toc-non-repeatable-read">Non-Repeatable Read</a></li>
+      <li><a href="#phantom-read" id="markdown-toc-phantom-read">Phantom Read</a></li>
+    </ul>
+  </li>
+  <li><a href="#isolation-level%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%9D%B4%EC%83%81%ED%98%84%EC%83%81" id="markdown-toc-isolation-level에-따른-이상현상">Isolation Level에 따른 이상현상</a></li>
+  <li>
+<a href="#%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EB%A0%88%EB%B2%A8-%EB%B3%B4%EB%8A%94%EB%B2%95" id="markdown-toc-트랜잭션-레벨-보는법">트랜잭션 레벨 보는법</a>    <ul>
+      <li><a href="#mysql-80" id="markdown-toc-mysql-80">MySQL 8.0</a></li>
+    </ul>
+  </li>
+  <li><a href="#%EC%B0%B8%EA%B3%A0-%EC%82%AC%ED%95%AD" id="markdown-toc-참고-사항">참고 사항</a></li>
+  <li><a href="#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" id="markdown-toc-참고-자료">참고 자료</a></li>
+  <li><a href="#todo" id="markdown-toc-todo">TODO</a></li>
+  <li><a href="#%EA%B0%81%EC%A3%BC" id="markdown-toc-각주">각주</a></li>
+</ul>
+
+<h3 id="표준-sql-에서의-isolation-level">표준 SQL 에서의 Isolation Level</h3>
+
+<p>표준 SQL에서는 다음과 같이 4단계의 Isloation Level을 정의한다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Read uncommitted</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Read committed</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Repeatable Read</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Serializble</code></li>
+</ul>
+
+<h3 id="트랜잭션의-이상-현상">트랜잭션의 이상 현상</h3>
+
+<p>트랜잭션 격리 레벨에 따라 이상 현상이 발생할 수 있다.</p>
+
+<h4 id="dirty-read">Dirty Read</h4>
+
+<p>서로 다른 두 트랜잭션에서 커밋되지 않은 내용에 대해 읽을 때 발생하는 현상이다.</p>
+
+<h4 id="non-repeatable-read">Non-Repeatable Read</h4>
+
+<p>한 트랜잭션 내에서 다른 트랜잭션이 커밋된 내용이 읽힐 때 발생하는 현상이다.</p>
+
+<p>client1</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">test_user</span> <span class="k">WHERE</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">;</span>
+
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>client 2</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span><span class="p">;</span>
+
+<span class="k">UPDATE</span> <span class="n">test_user</span> <span class="k">SET</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">100</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="p">;</span>
+
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>다음과 같은 2개의 클라이언트가 있다고 가정할 때, client1이 client2가 update 후 커밋을 후에 다시 조회하게 되면 두번의 select 했을 때의 결과가 서로 달라진다.</p>
+
+<h4 id="phantom-read">Phantom Read</h4>
+
+<p>한 트랜잭션에서 조회 시 다른 트랜잭션에서 새로 추가/업데이트/삭제로 인해 기존에 없던 행이 생기는 이상 현상이다.</p>
+
+<p>client1</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">#</span> <span class="n">phantom</span> <span class="k">read</span> <span class="n">test</span>
+<span class="k">START</span> <span class="n">TRANSACTION</span><span class="p">;</span>
+
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test_user</span> <span class="k">where</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">;</span>
+
+<span class="k">commit</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>client2</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">START</span> <span class="n">TRANSACTION</span><span class="p">;</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">test_user</span> <span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="k">COMMIT</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>client1 트랜잭션 시작 -&gt; client1 조회 -&gt; client2 트랜잭션 시작 -&gt; client2 insert -&gt; client2 commit -&gt; client1 조회 시 기존에 조회되지 않던 <strong>유령</strong>의 행이 추가로 발생한다.</p>
+
+<h3 id="isolation-level에-따른-이상현상">Isolation Level에 따른 이상현상</h3>
+
+<p>Isolation Level을 어떻게 설정하느냐에 따라 발생할 이상 현상을 제어할 수 있다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>레벨/현상</th>
+      <th>Dirty Read</th>
+      <th>Non-Repeatable Read</th>
+      <th>Phantom Read</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Read UnCommitted</td>
+      <td>o</td>
+      <td>o</td>
+      <td>o</td>
+    </tr>
+    <tr>
+      <td>Read Committed</td>
+      <td>x</td>
+      <td>o</td>
+      <td>o</td>
+    </tr>
+    <tr>
+      <td>Repeatable Read</td>
+      <td>x</td>
+      <td>x</td>
+      <td>o</td>
+    </tr>
+    <tr>
+      <td>Serializable</td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>아래로 갈수록 더 많은 이상현상을 제어할 수 있으나, 그만큼 데이터베이스의 처리량(throughput)이 감소하여 성능이 떨어지게 된다.</p>
+
+<ul>
+  <li>(추가) MySQL 8.0 버전의 경우 기본적으로 <code class="language-plaintext highlighter-rouge">Repeatable</code>레벨로 설정되지만, InnoDB 엔진은 별도의 락 메커니즘을 통해 Phantom Read 현상도 방지한다. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>
+</li>
+</ul>
+
+<h3 id="트랜잭션-레벨-보는법">트랜잭션 레벨 보는법</h3>
+
+<h4 id="mysql-80">MySQL 8.0</h4>
+
+<p>MySQL의 경우 다음과 같이 사용한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SHOW VARIABLES LIKE <span class="s1">'transaction_isolation'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| variable_name         | value         |
+|-----------------------|---------------|
+| transaction_isolation | READ-COMMITED |
+</code></pre></div></div>
+
+<p>혹은, 트랜잭션 시작 후에 사용할 Isolation Level을 설정할 수도 있다. <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; START TRANSACTION<span class="p">;</span>
+Query OK, 0 rows affected <span class="o">(</span>0.02 sec<span class="o">)</span>
+
+mysql&gt; SET TRANSACTION ISOLATION LEVEL SERIALIZABLE<span class="p">;</span>
+ERROR 1568 <span class="o">(</span>25001<span class="o">)</span>: Transaction characteristics can<span class="s1">'t be changed
+while a transaction is in progress
+</span></code></pre></div></div>
+
+<h3 id="참고-사항">참고 사항</h3>
+
+<p>위의 내용은 모두 <code class="language-plaintext highlighter-rouge">DataGrip</code>, <code class="language-plaintext highlighter-rouge">MySQL 8.0</code> 기준으로 실험하였다.</p>
+
+<h3 id="참고-자료">참고 자료</h3>
+
+<ul>
+  <li><a href="https://youtu.be/bLLarZTrebU?si=udvNjIUCQUEs0DGt">쉬운코드 - isolation level 정리</a></li>
+</ul>
+
+<h3 id="todo">TODO</h3>
+
+<ul class="task-list">
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>스냅샷 레벨 추가</li>
+  <li class="task-list-item">
+<input type="checkbox" class="task-list-item-checkbox" disabled>표준 SQL 비판 관련 내용 추가</li>
+</ul>
+
+<h3 id="각주">각주</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-next-key-locking.html">https://dev.mysql.com/doc/refman/8.0/en/innodb-next-key-locking.html</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://dev.mysql.com/doc/refman/8.0/en/set-transaction.html">https://dev.mysql.com/doc/refman/8.0/en/set-transaction.html</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

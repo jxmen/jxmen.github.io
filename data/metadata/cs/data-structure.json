@@ -1,0 +1,12 @@
+{
+ "type": "wiki",
+ "title": "자료구조",
+ "summary": "",
+ "parent": "cs",
+ "url": "/wiki/cs/data-structure",
+ "updated": "2024-03-26 16:12:30 +0900",
+ "resource": "4E034B51-0269-4AC4-A7B8-80CFA573AF1E",
+ "children": [
+  "cs/data-structure/bst"
+ ]
+}

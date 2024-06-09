@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>상태 패턴 (State) - 박주영의 위키</title>
+
+    <meta name="description" content="객체 내부에서 자신의 상태를 변경한다">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/pattern/state/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="상태 패턴 (State)">
+    <meta property="og:description" content="객체 내부에서 자신의 상태를 변경한다">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/pattern/state/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/pattern/state/" />
+        <meta name="twitter:title" content="상태 패턴 (State)" />
+        <meta name="twitter:description" content="객체 내부에서 자신의 상태를 변경한다" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="pattern/state">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/pattern/state/"> 상태 패턴 (State) </a>
+        </h1>
+    
+        <p class="title-summary">객체 내부에서 자신의 상태를 변경한다</p>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/pattern/state.md" target="_blank">created: 2024.02.11</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/pattern/state.md" target="_blank">updated: 2024.02.11</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/pattern/state.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=%EC%83%81%ED%83%9C+%ED%8C%A8%ED%84%B4+%28State%29&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    pattern
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EA%B0%9C%EC%9A%94" id="markdown-toc-개요">개요</a></li>
+  <li><a href="#%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%EC%B0%B8%EC%97%AC%EC%9E%90" id="markdown-toc-구조-및-참여자">구조 및 참여자</a></li>
+  <li>
+<a href="#%EC%98%88%EC%A0%9C" id="markdown-toc-예제">예제</a>    <ul>
+      <li><a href="#%ED%97%A4%EB%93%9C-%ED%8D%BC%EC%8A%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4" id="markdown-toc-헤드-퍼스트-디자인-패턴">헤드 퍼스트 디자인 패턴</a></li>
+      <li><a href="#%EA%B0%9C%EC%9D%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-user-%EC%83%81%ED%83%9C-%ED%8C%A8%ED%84%B4-%EC%A0%81%EC%9A%A9" id="markdown-toc-개인-프로젝트-user-상태-패턴-적용">개인 프로젝트 User 상태 패턴 적용</a></li>
+    </ul>
+  </li>
+  <li><a href="#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" id="markdown-toc-참고-자료">참고 자료</a></li>
+  <li><a href="#%EA%B0%81%EC%A3%BC" id="markdown-toc-각주">각주</a></li>
+</ul>
+
+<h3 id="개요">개요</h3>
+
+<p>상태 패턴은 객체 내부의 상태에 따라 행동을 제한하거나, 다른 상태 변경을 제어할 때 유용하게 사용할 수 있다.</p>
+
+<blockquote>
+  <p>상태 패턴을 사용하면 객체의 내부 상태가 바뀜에 따라서 객체의 행동을 바꿀 수 있습니다. 마치 객체의 클래스가 바뀌는 것과 같은 결과를 얻을 수 있습니다. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+</blockquote>
+
+<h3 id="구조-및-참여자">구조 및 참여자</h3>
+
+<p>상태 패턴은 전략 패턴과 구조가 비슷하다.</p>
+
+<ul>
+  <li>State
+    <ul>
+      <li>상태를 정의하는 인터페이스이다.</li>
+      <li>상태가 할 수 있는 행동에 대해 이 인터페이스에서 정의한다.</li>
+    </ul>
+  </li>
+  <li>ConcreteState
+    <ul>
+      <li>상태를 구현하는 구현체로, 구현체마다 자신이 할 수 있는 행동을 구현한다.</li>
+      <li>Context에게 상태 변경을 위임한다.</li>
+    </ul>
+  </li>
+  <li>Context
+    <ul>
+      <li>State를 사용하는 객체</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="예제">예제</h3>
+
+<h4 id="헤드-퍼스트-디자인-패턴">헤드 퍼스트 디자인 패턴</h4>
+
+<p>헤드 퍼스트 디자인 패턴에서는 뽑기 기계를 통해 예시를 들고 있다.</p>
+
+<ul>
+  <li>상태는 <code class="language-plaintext highlighter-rouge">매진</code>, <code class="language-plaintext highlighter-rouge">동전 없음</code>, <code class="language-plaintext highlighter-rouge">동전 있음</code>, <code class="language-plaintext highlighter-rouge">뽑는중</code> 등이 있다.</li>
+  <li>행동은 <code class="language-plaintext highlighter-rouge">코인 추가</code>, <code class="language-plaintext highlighter-rouge">코인 반환</code>, <code class="language-plaintext highlighter-rouge">손잡이 돌리기</code>, <code class="language-plaintext highlighter-rouge">알맹이 내보내기</code> 등이 있다.</li>
+</ul>
+
+<p>현재 상태에 따라 내가 하려는 행동에 대해 변경할 수 있는/없는 상태가 있고, 이를 if-else 문으로 구현할 수 있다.</p>
+
+<p>kotlin으로 간단하게 작성한 예시로는 다음과 같다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">insertQuarter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="p">==</span> <span class="s">"동전 없음"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nf">println</span><span class="p">(</span><span class="s">"코인을 추가합니다"</span><span class="p">)</span>
+		<span class="n">state</span> <span class="p">=</span> <span class="s">"동전 있음"</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="p">==</span> <span class="s">"매진"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nf">println</span><span class="p">(</span><span class="s">"매진 상태에서는 코인을 넣을 수 없습니다."</span><span class="p">)</span>	
+	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="p">==</span> <span class="s">"뽑는중"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nf">println</span><span class="p">(</span><span class="s">"뽑는중에서는 코인을 넣을 수 없습니다."</span><span class="p">)</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">ejectQuarter</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// (생략) 코인을 반환하는 행동에 따른 상태 처리 로직 ...</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">turnCrank</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// (일부 생략) 손잡이를 돌리는 행동에 따른 상태 처리 로직 ...</span>
+	
+	<span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="p">==</span> <span class="s">"동전 있음"</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">state</span> <span class="p">=</span> <span class="s">"뽑는중"</span>
+		<span class="nf">dispense</span><span class="p">()</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">dispense</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// (생략) 알맹이 내보낸 후에 따른 상태 처리 로직 ...</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>각 행동에 따라 상태 처리에 따른 로직이 모두 달라지게 된다.</p>
+
+<p>그렇다면 위와 같은 코드에서 새로운 상태가 추가된다면? 이벤트로 1/10 확률로 알맹이 2개를 내보내야 한다면 어떻게 처리할 것인가?</p>
+
+<p>물론 if-else문에서 계속 추가하는 방식으로 구현할 수 있다. 하지만 이는 많은 코드 변경이 이루어지고, 복잡한 상태에서 실수할 여지가 커지게 된다.</p>
+
+<p>그렇다면 이런 <strong>바뀌는 부분을 캡슐화</strong>하도록 설계를 하면 어떨까?</p>
+
+<p>헤드 퍼스트 디자인에서는 다음과 같이 코드를 변경한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">State</span> <span class="o">{</span>
+	<span class="kt">void</span> <span class="nf">insertQuarter</span><span class="o">();</span>
+	<span class="kt">void</span> <span class="nf">ejectQuarter</span><span class="o">();</span>
+	<span class="kt">void</span> <span class="nf">turnCrank</span><span class="o">();</span>
+	<span class="kt">void</span> <span class="nf">dispense</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">NoQuarterState</span> <span class="kd">implements</span> <span class="nc">State</span> <span class="o">{</span>
+	<span class="nc">GumballMachine</span> <span class="n">gumballMachine</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">NoQuarterState</span><span class="o">(</span><span class="nc">GumballMachine</span> <span class="n">gumballMachine</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">gumballMachine</span> <span class="o">=</span> <span class="n">gumballMachine</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertQuarter</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"동전을 투입합니다."</span><span class="o">);</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">gumballMachine</span><span class="o">.</span><span class="na">setState</span><span class="o">(</span><span class="n">gumballMachine</span><span class="o">.</span><span class="na">getHasQuaterState</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="c1">// (중략) 나머지 메서드들 ...</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">HasQuarterState</span> <span class="n">implments</span> <span class="nc">State</span> <span class="o">{</span>
+
+	<span class="nc">GumballMachine</span> <span class="n">gumballMachine</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="nf">HasQuarterState</span><span class="o">(</span><span class="nc">GumballMachine</span> <span class="n">gumballMachine</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">gumballMachine</span> <span class="o">=</span> <span class="n">gumballMachine</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertQuarter</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"이미 동전이 있습니다"</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="c1">// (중략) 나머지 메서드들 ...</span>
+<span class="o">}</span>
+
+<span class="c1">// 나머지 클래스들 ...</span>
+</code></pre></div></div>
+
+<p>상태라는 인터페이스를 정의하고, 해당 인터페이스에 해야할 행동들을 정의한다.</p>
+
+<p>그리고 각 상태별로 행동에 대해 제어한다.</p>
+
+<p>새로운 상태가 추가된다면 상태 인터페이스를 구현하는 구현체를, 행동이 추가된다면 상태 인터페이스에 메서드를 추가한다. 이로 인해 필요한 부분에 대해서만 구현을 할 수 있도록 변경해주며, SOLID 원칙 중 OCP 원칙을 지킬 수 있게 된다.</p>
+
+<h4 id="개인-프로젝트-user-상태-패턴-적용">개인 프로젝트 User 상태 패턴 적용</h4>
+
+<p>개인 프로젝트 코드에 상태 패턴을 적용해보면 어떨까 궁금해서 한번 해보았다.</p>
+
+<p>아래는 유저 상태를 상태 패턴으로 작성해본 예제이다.</p>
+
+<ul>
+  <li>상태가 register -&gt; activate -&gt; deleted로 변경 가능할 때 다음과 같이 작성할 수 있다.</li>
+</ul>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">UserState</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">signUp</span><span class="p">()</span>
+    <span class="k">fun</span> <span class="nf">activate</span><span class="p">()</span>
+    <span class="k">fun</span> <span class="nf">delete</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">RegisterUserState</span><span class="p">(</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">user</span><span class="p">:</span> <span class="nc">User</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">UserState</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">signUp</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"이미 가입된 유저입니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">activate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"유저가 활성화 되었습니다."</span><span class="p">)</span>
+        <span class="n">user</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="n">user</span><span class="p">.</span><span class="n">activateUserState</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"활성화 상태에서만 유저를 삭제할 수 있습니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ActivateUserState</span><span class="p">(</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">user</span><span class="p">:</span> <span class="nc">User</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">UserState</span><span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">signUp</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"이미 가입한 유저입니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">activate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"이미 활성화된 유저입니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"유저 삭제 처리를 진행합니다."</span><span class="p">)</span>
+        <span class="n">user</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="n">user</span><span class="p">.</span><span class="n">deleteUserState</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">DeleteUserState</span><span class="p">(</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">user</span><span class="p">:</span> <span class="nc">User</span>
+<span class="p">):</span> <span class="nc">UserState</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">signUp</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"삭제된 유저입니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">activate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"삭제된 유저입니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"이미 삭제된 유저입니다."</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">class</span> <span class="nc">User</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">activateUserState</span><span class="p">:</span> <span class="nc">ActivateUserState</span>
+    <span class="kd">var</span> <span class="py">registerUserState</span><span class="p">:</span> <span class="nc">RegisterUserState</span>
+    <span class="kd">var</span> <span class="py">deleteUserState</span><span class="p">:</span> <span class="nc">DeleteUserState</span>
+
+    <span class="kd">var</span> <span class="py">state</span><span class="p">:</span> <span class="nc">UserState</span><span class="p">;</span>
+
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">activateUserState</span> <span class="p">=</span> <span class="nc">ActivateUserState</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">registerUserState</span> <span class="p">=</span> <span class="nc">RegisterUserState</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">deleteUserState</span> <span class="p">=</span> <span class="nc">DeleteUserState</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">state</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">registerUserState</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">activate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">state</span><span class="p">.</span><span class="nf">activate</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">delete</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">state</span><span class="p">.</span><span class="nf">delete</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">user</span> <span class="p">=</span> <span class="nc">User</span><span class="p">()</span>
+    <span class="n">user</span><span class="p">.</span><span class="nf">activate</span><span class="p">()</span>
+    <span class="n">user</span><span class="p">.</span><span class="nf">activate</span><span class="p">()</span>
+
+    <span class="n">user</span><span class="p">.</span><span class="nf">delete</span><span class="p">()</span>
+    <span class="n">user</span><span class="p">.</span><span class="nf">delete</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>실행 결과</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>유저가 활성화 되었습니다.
+이미 활성화된 유저입니다.
+유저 삭제 처리를 진행합니다.
+이미 삭제된 유저입니다.
+</code></pre></div></div>
+
+<p>이렇게 보니 지금은 상태 패턴이 과한 것 같다. 상태가 register -&gt; activate -&gt; deleted 단방향으로만 진행되기 때문에 그런 것 같다. deleted 상태에서 다시 activate로 갈 수 있는 등 여러 복잡한 상태에서는 유용하게 사용할 수 있을 것 같다.</p>
+
+<h3 id="참고-자료">참고 자료</h3>
+
+<ul>
+  <li>헤드 퍼스트 디자인 패턴 - 개정판</li>
+</ul>
+
+<h3 id="각주">각주</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>헤드 퍼스트 디자인 패턴 - 개정판 p440 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

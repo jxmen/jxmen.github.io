@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>TCP 송/수신 원리 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/cs/network/tcp-sending-and-receiving/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TCP 송/수신 원리">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/cs/network/tcp-sending-and-receiving/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/cs/network/tcp-sending-and-receiving/" />
+        <meta name="twitter:title" content="TCP 송/수신 원리" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/network/tcp-sending-and-receiving">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/cs/network/tcp-sending-and-receiving/"> TCP 송/수신 원리 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/network/tcp-sending-and-receiving.md" target="_blank">created: 2024.02.29</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/network/tcp-sending-and-receiving.md" target="_blank">updated: 2024.02.29</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/network/tcp-sending-and-receiving.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=TCP+%EC%86%A1%2F%EC%88%98%EC%8B%A0+%EC%9B%90%EB%A6%AC&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EC%98%81%EC%83%81-%EB%82%B4%EC%9A%A9-%EC%9A%94%EC%95%BD" id="markdown-toc-영상-내용-요약">영상 내용 요약</a></li>
+  <li><a href="#%EB%82%98%EB%A8%B8%EC%A7%80-%EC%B0%B8%EA%B3%A0%ED%95%A0-%EB%82%B4%EC%9A%A9" id="markdown-toc-나머지-참고할-내용">나머지 참고할 내용</a></li>
+</ul>
+
+<p>이 문서는 <a href="https://www.youtube.com/watch?v=K9L9YZhEjC0&list=PPSV">이해하면 인생이 바뀌는 TCP 송/수신 원리
+</a>에 있는 영상 내용을 요약한 것이다.</p>
+
+<h3 id="영상-내용-요약">영상 내용 요약</h3>
+
+<p>Server는 Process. Process가 파일에 할 수 있는 오퍼레이션은 기본적으로 RWX</p>
+
+<ul>
+  <li>소켓에서 Read와 Write는 다르게 부름 (Receive, Send)</li>
+</ul>
+
+<p>서버를 어떤 언어로 개발하든, 서버에 메모리를 할당하게 된다.</p>
+
+<ul>
+  <li>파일의 크기가 1.4MB일때, 메모리를 얼마나 할당할지는 개발자가 결정 (서버 프로세스를 개발한 개발자)</li>
+  <li>메모리를 64KB 할당했다고 가정</li>
+  <li>64KB만큼 메모리를 끊어서 메모리에 적재하는 방식</li>
+</ul>
+
+<p>세그먼트(segment): 메모리에서 버퍼로 읽어올 때, 이를 잘게 쪼개고 번호를 붙인 것!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|---|---|---|
+| 1 | 2 | 3 |
+|---|---|---|
+</code></pre></div></div>
+<ul>
+  <li>각각의 세그먼트는 번호가 붙는다. (실제 번호 체계는 이렇게 단순하지는 않다.)</li>
+</ul>
+
+<p>패킷이란 택배 박스와 원리가 유사</p>
+<ul>
+  <li>택배 박스에 세그먼트를 집어넣는 것</li>
+  <li>택배 박스를 트럭에 전달. 이는 <code class="language-plaintext highlighter-rouge">프레임</code>이라고 함</li>
+  <li>트럭을 계속 갈아탐. 즉 프레임이 있었다가 없어졌다를 반복</li>
+</ul>
+
+<p>보통 클라이언트 측에서 2개 정도의 세그먼트를 수신하면, 서버에게 잘 받았다라고 ACK#3 하고 수신을 하게됨.</p>
+
+<ul>
+  <li>뒤에 붙는 번호는 보낸 세그먼트의 숫자 + 1</li>
+  <li>서버 측에서는 세그먼트를 송신하고, 클라이언트 측에서 ACK 응답이 올때까지 기다리게 되는데(WAIT), <strong>이 기다리는 시간이 대부분 TCP에서 시간이 오래 걸리는 비중의 대부분을 차지한다.</strong>
+</li>
+</ul>
+
+<p>여기서 TCP 3-Way HandShake 과정이 생각났다.</p>
+
+<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5hdXRvbnVtYmVyXG5wYXJ0aWNpcGFudCBjIGFzIGNsaWVudFxucGFydGljaXBhbnQgcyBhcyBzZXJ2ZXJcbiUlLVxuYy0-PnM6IHN5blxucy0-PmM6IHN5bithY2tcbmFjdGl2YXRlIHNcbk5vdGUgcmlnaHQgb2YgczogV0FJVCDtlZjripQg64-Z7JWIIOyngOyXsCDrsJzsg51cbmMtPj5zOiBhY2tcbmRlYWN0aXZhdGUgcyIsIm1lcm1haWQiOm51bGx9"></p>
+
+<p>Window Size: 수신 측에서 받은 세그먼트를 제외한 나머지 용량</p>
+
+<ul>
+  <li>수신측에서는 ACK를 보낼 때 이 Window Size도 같이 보낸다.</li>
+  <li><strong>받은 Window Size에 따라 보낼지 말지를 수신측에서 결정하는데, 사이즈가 모자라다면 보내지 않는다!!!</strong></li>
+  <li>
+<code class="language-plaintext highlighter-rouge">수신측 Window Size &gt; 송신측의 MSS (Maxium Segment Size)</code> 체크
+    <ul>
+      <li>YES: 보냄</li>
+      <li>NO: WAIT가 걸린다.</li>
+    </ul>
+  </li>
+  <li>프로그램이 느리다: 수신측의 Window Size가 부족한 것일 수도 있다.</li>
+</ul>
+
+<p><em>Client측의 Read 속도가 Network에서 수신하는 속도보다 빨라야된다. 그렇지 아니면 TCP Buffer가 계속 차게되어 WAIT하는 시간이 길어진다.</em></p>
+
+<h3 id="나머지-참고할-내용">나머지 참고할 내용</h3>
+
+<ul>
+  <li>소켓이라는 것은 TCP/IP를 추상화 한 것</li>
+  <li>TCP에서 내려올 때 IP로 변한다</li>
+  <li>소켓의 본질은 파일</li>
+</ul>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

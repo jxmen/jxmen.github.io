@@ -1,0 +1,10 @@
+{
+ "type": "wiki",
+ "title": "디자인 패턴",
+ "summary": "소프트웨어 개발, 특히 OOP에서 자주 사용되는 패턴들을 다룬다.",
+ "parent": "pattern",
+ "url": "/wiki/pattern/design-pattern",
+ "updated": "2024-02-11 00:20:13 +0900",
+ "resource": "19AAB903-DE04-40B8-BB08-0A515E1A897F",
+ "children": []
+}

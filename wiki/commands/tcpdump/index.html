@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>tcpdump - 박주영의 위키</title>
+
+    <meta name="description" content="tcp 패킷 캡처 명령어">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/commands/tcpdump/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="tcpdump">
+    <meta property="og:description" content="tcp 패킷 캡처 명령어">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/commands/tcpdump/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/commands/tcpdump/" />
+        <meta name="twitter:title" content="tcpdump" />
+        <meta name="twitter:description" content="tcp 패킷 캡처 명령어" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="commands/tcpdump">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/commands/tcpdump/"> tcpdump </a>
+        </h1>
+    
+        <p class="title-summary">tcp 패킷 캡처 명령어</p>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/commands/tcpdump.md" target="_blank">created: 2024.02.29</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/commands/tcpdump.md" target="_blank">updated: 2024.02.29</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/commands/tcpdump.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=tcpdump&body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    tcp
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#tcpdump" id="markdown-toc-tcpdump">tcpdump</a></li>
+  <li><a href="#%EC%98%B5%EC%85%98" id="markdown-toc-옵션">옵션</a></li>
+  <li><a href="#%EC%98%88%EC%A0%9C" id="markdown-toc-예제">예제</a></li>
+  <li><a href="#dump%ED%95%9C-%ED%8C%8C%EC%9D%BC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9C%BC%EB%A1%9C-%EA%B0%84%ED%8E%B8%ED%95%98%EA%B2%8C-%EB%B3%B4%EA%B8%B0" id="markdown-toc-dump한-파일-프로그램으로-간편하게-보기">dump한 파일 프로그램으로 간편하게 보기</a></li>
+  <li><a href="#%EC%A3%BC%EC%84%9D" id="markdown-toc-주석">주석</a></li>
+</ul>
+
+<h3 id="tcpdump">tcpdump</h3>
+
+<blockquote>
+  <p>Dump traffic on a network. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+</blockquote>
+
+<p>tcpdump는 네트워크상에서 패킷을 캡처할 수 있도록 해주는 cli 명령어이다.</p>
+
+<h3 id="옵션">옵션</h3>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">-i</code>: 인터페이스
+    <ul>
+      <li>localhost의 경우 <code class="language-plaintext highlighter-rouge">lo0</code>을 지정한다.</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">-w</code>: 쓸 파일명 지정</li>
+</ul>
+
+<h3 id="예제">예제</h3>
+
+<p><code class="language-plaintext highlighter-rouge">localhost:8080</code>의 패킷 <code class="language-plaintext highlighter-rouge">packat.pcap</code> 파일에 남기기</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump <span class="nt">-i</span> lo0 <span class="nt">-w</span> packat.pcap port 8080
+</code></pre></div></div>
+
+<p>tcpdump로 생성한 파일 읽기</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump <span class="nt">-qns</span> 0 <span class="nt">-X</span> <span class="nt">-r</span> packat.pcap
+</code></pre></div></div>
+
+<h3 id="dump한-파일-프로그램으로-간편하게-보기">dump한 파일 프로그램으로 간편하게 보기</h3>
+
+<p>파일을 cli 상에서 읽기에는 불편하다. <a href="https://wireshark.org">wireshark</a>이라는 GUI 프로그램으로 패킷을 더 쉽게 보고 분석할 수 있다.</p>
+
+<p>tcpdump 명령어로 분석한 <code class="language-plaintext highlighter-rouge">.pcap</code> 확장자의 파일을 해당 프로그램에 업로드하여 패킷을 보는 것도 가능하다.</p>
+
+<h3 id="주석">주석</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><code class="language-plaintext highlighter-rouge">tldr tcpdump</code> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

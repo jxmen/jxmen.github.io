@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>OAuth Login URL API 요청 과정 트러블슈팅 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/project/flash-card/oauth-get-login-url/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OAuth Login URL API 요청 과정 트러블슈팅">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/project/flash-card/oauth-get-login-url/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/project/flash-card/oauth-get-login-url/" />
+        <meta name="twitter:title" content="OAuth Login URL API 요청 과정 트러블슈팅" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="project/flash-card/oauth-get-login-url">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/project/flash-card/oauth-get-login-url/"> OAuth Login URL API 요청 과정 트러블슈팅 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/project/flash-card/oauth-get-login-url.md" target="_blank">created: 2024.04.27</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/project/flash-card/oauth-get-login-url.md" target="_blank">updated: 2024.04.27</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/project/flash-card/oauth-get-login-url.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=OAuth+Login+URL+API+%EC%9A%94%EC%B2%AD+%EA%B3%BC%EC%A0%95+%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    http trouble-shooting
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EA%B0%9C%EC%9A%94" id="markdown-toc-개요">개요</a></li>
+  <li><a href="#%EB%A1%9C%EC%BB%AC%EC%97%90-%EC%9A%94%EC%B2%AD%EC%9D%84-%EB%B3%B4%EB%82%B4%EB%8A%94-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%A0%95%EC%9D%98" id="markdown-toc-로컬에-요청을-보내는-클라이언트-정의">로컬에 요청을 보내는 클라이언트 정의</a></li>
+  <li><a href="#%ED%8C%A8%ED%82%B7%EC%9D%84-%ED%86%B5%ED%95%9C-%EC%9B%90%EC%9D%B8-%EB%B6%84%EC%84%9D" id="markdown-toc-패킷을-통한-원인-분석">패킷을 통한 원인 분석</a></li>
+  <li><a href="#response-%EA%B0%9D%EC%B2%B4%EA%B0%80-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A7%80%EB%8A%94-%EA%B3%BC%EC%A0%95" id="markdown-toc-response-객체가-만들어지는-과정">Response 객체가 만들어지는 과정</a></li>
+  <li><a href="#%ED%9B%84%EA%B8%B0" id="markdown-toc-후기">후기</a></li>
+  <li><a href="#%EA%B0%81%EC%A3%BC" id="markdown-toc-각주">각주</a></li>
+</ul>
+
+<p>클라이언트 개발자에게 <code class="language-plaintext highlighter-rouge">Google 로그인 페이지</code>로 이동하기 위한 URL을 응답해주는 별도의 API를 만드는 과정에서 발생한 오류 해결 과정을 기록합니다.</p>
+
+<h3 id="개요">개요</h3>
+
+<p>현재 Spring Security 라이브러이에 OAuth 관련 라이브러리와 설정을 추가하였고, <code class="language-plaintext highlighter-rouge">/oauth2/authorization/google</code> URL로 요청시 302 Found 응답코드와 함께 <code class="language-plaintext highlighter-rouge">Location</code> 헤더에 구글 로그인 페이지로 이동하기 위한 URL이 제공되는 상태였습니다.</p>
+
+<p>허나 클라이언트 개발자분이 현재 사용중인 라이브러리에서 <code class="language-plaintext highlighter-rouge">Location</code> 헤더 값을 불러올 수 없는 상태라고 하셔서 제가 별도의 API를 만들어드리려 했습니다.</p>
+
+<p>그래서 저는 단순히 내 로컬에 요청을 보내고 그걸 다시 200 응답과 로그인 URL을 응답해주면 될거라 생각했습니다.</p>
+
+<p><img class="mermaid" src="https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5wYXJ0aWNpcGFudCBjIGFzIGNsaWVudFxucGFydGljaXBhbnQgbCBhcyBzZXJ2ZXItbG9jYWwtY2xpZW50XG5wYXJ0aWNpcGFudCBzIGFzIHNlcnZlclxuJSUtXG5jLT4-bDogR0VUIC9sb2dpbi11cmwvZ29vZ2xlIEFQSSDtmLjstpxcbmwtPj5zOiBHRVQgL29hdXRoMi9hdXRob3JpemF0aW9uL2dvb2dsZSBBUEkg7Zi47LacXG5zLT4-bDogMzAyLiBMb2NhdGlvbj1mb28uY29tXG5sLT4-YzogMjAwLiB7IHVybDogZm9vLmNvbSB9IiwibWVybWFpZCI6bnVsbH0"></p>
+
+<ul>
+  <li>기대했었던 상태</li>
+</ul>
+
+<p>하지만 문제는 <code class="language-plaintext highlighter-rouge">server-local-client</code>에서 <code class="language-plaintext highlighter-rouge">server</code>로 요청 시 302가 아닌 200을 응답하는 것이였습니다.</p>
+
+<h3 id="로컬에-요청을-보내는-클라이언트-정의">로컬에 요청을 보내는 클라이언트 정의</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Spring Cloud OpenFeign</code>이라는 라이브러리는 외부 클라이언트를 인터페이스만으로 손쉽게 정의할 수 있는 라이브러리입니다. 그래서 다음과 같이 Api와 Client를 정의하고 호출을 하려 했습니다.</p>
+
+<p>LocalApi.kt</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@FeignClient</span><span class="p">(</span><span class="n">value</span> <span class="p">=</span> <span class="s">"local-api"</span><span class="p">,</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"\${local.url}"</span><span class="p">)</span> <span class="c1">// local.url: http://localhost:8080</span>
+<span class="k">internal</span> <span class="kd">interface</span> <span class="nc">LocalApi</span> <span class="p">{</span>
+    <span class="nd">@RequestMapping</span><span class="p">(</span>
+        <span class="n">method</span> <span class="p">=</span> <span class="p">[</span><span class="nc">RequestMethod</span><span class="p">.</span><span class="nc">GET</span><span class="p">],</span>
+        <span class="n">value</span> <span class="p">=</span> <span class="p">[</span><span class="s">"/oauth2/authorization/google"</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">fun</span> <span class="nf">requestToOAuthGoogleAuthorization</span><span class="p">():</span> <span class="nc">Response</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>LocalClient.kt</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span>
+<span class="kd">class</span> <span class="nc">LocalClient</span> <span class="k">internal</span> <span class="k">constructor</span><span class="p">(</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">localApi</span><span class="p">:</span> <span class="nc">LocalApi</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">fun</span> <span class="nf">requestGetGoogleLoginUrl</span><span class="p">():</span> <span class="nc">String</span> <span class="p">{</span>
+        <span class="c1">// TODO: 왜 응답이 200으로 들어오는지 확인 필요</span>
+        <span class="kd">val</span> <span class="py">response</span> <span class="p">=</span> <span class="n">localApi</span><span class="p">.</span><span class="nf">requestToOAuthGoogleAuthorization</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="py">location</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">()[</span><span class="s">"Location"</span><span class="p">]</span><span class="o">?.</span><span class="nf">first</span><span class="p">()</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">IllegalStateException</span><span class="p">(</span><span class="s">"Location header not found"</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">location</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다음 테스트 코드를 실행하고 디버깅을 해보았으나, response에서는 <strong>200</strong>을 응답하고 있었습니다!!</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">LocalClientTest</span><span class="p">(</span>
+    <span class="kd">val</span> <span class="py">localClient</span><span class="p">:</span> <span class="nc">LocalClient</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">LocalClientContextTest</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">@Test</span>
+    <span class="k">fun</span> <span class="nf">shouldBeThrownExceptionWhenExample</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">location</span> <span class="p">=</span> <span class="n">localClient</span><span class="p">.</span><span class="nf">requestGetGoogleLoginUrl</span><span class="p">()</span>
+            <span class="nf">println</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="nc">Exception</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nc">Assertions</span><span class="p">.</span><span class="nf">assertThat</span><span class="p">(</span><span class="n">e</span><span class="p">).</span><span class="nf">isExactlyInstanceOf</span><span class="p">(</span><span class="nc">RetryableException</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="/resource//0f3ee6b0-393b-4f9b-bb55-fe5eef5882bf.png" alt="response 200"></p>
+
+<h3 id="패킷을-통한-원인-분석">패킷을 통한 원인 분석</h3>
+
+<p>실제로도 200을 응답하는 것인가? Spring이 내부에서 200으로 자동으로 변환해주는 것이 아닌가 궁금했습니다.</p>
+
+<p>그랬더니 흥미로운 사실을 발견했습니다. 패킷 상으로는 302를 정상적으로 응답해주고 있는 것이였습니다. <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p><img src="/resource//b55713ca-34b2-454f-ac9d-84a53678486e.png" alt="tcp packet capture"></p>
+
+<h3 id="response-객체가-만들어지는-과정">Response 객체가 만들어지는 과정</h3>
+
+<p>Spring Cloud OpenFeign에서 제공하는 Response가 어떻게 만들어지는지 궁금했습니다. 혹시나 302등의 응답을 임의로 200으로 만드는 것이 아닐까 궁금했습니다.</p>
+
+<p>redirect는 웹 브라우저가 환경에서는 바로 해당 URL로 이동하므로, HTTP Client도 마찬가지로 URL을 따라 이동한 결과를 응답해준다는 생각이 들었습니다.</p>
+
+<p>그래서 <a href="https://docs.spring.io/spring-cloud-openfeign/reference/configprops.html">Spring Cloud OpenFeign 옵션</a> 문서에서, <code class="language-plaintext highlighter-rouge">follow-redirect</code>라는 옵션이 있고 이 기본 설정이 <code class="language-plaintext highlighter-rouge">true</code>로 되어있다는 것을 발견했습니다. <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+
+<p><img src="/resource//10347ee8-441e-454e-8094-c2a3c6b6ed4b.png" alt="Spring Cloud OpenFeign follow-redirect option"></p>
+
+<p>그래서 해당 옵션값을 변경 후 원하는대로 302 응답을 받을 수 있게 되었습니다!</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring.cloud.openfeign</span><span class="pi">:</span>
+  <span class="na">client</span><span class="pi">:</span>
+    <span class="na">config</span><span class="pi">:</span>
+      <span class="na">example-api</span><span class="pi">:</span>
+        <span class="na">connectTimeout</span><span class="pi">:</span> <span class="m">2100</span>
+        <span class="na">readTimeout</span><span class="pi">:</span> <span class="m">5000</span>
+        <span class="na">loggerLevel</span><span class="pi">:</span> <span class="s">full</span>
+      <span class="na">local-api</span><span class="pi">:</span>
+        <span class="na">connectTimeout</span><span class="pi">:</span> <span class="m">2100</span>
+        <span class="na">readTimeout</span><span class="pi">:</span> <span class="m">5000</span>
+        <span class="na">loggerLevel</span><span class="pi">:</span> <span class="s">full</span>
+        <span class="na">followRedirects</span><span class="pi">:</span> <span class="kc">false</span> <span class="c1"># 3xx 응답도 redirect url을 따라가지 않고 그대로 받는다. (default: true)</span>
+  <span class="na">compression</span><span class="pi">:</span>
+    <span class="na">response</span><span class="pi">:</span>
+      <span class="na">enabled</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">httpclient</span><span class="pi">:</span>
+    <span class="na">max-connections</span><span class="pi">:</span> <span class="m">2000</span>
+    <span class="na">max-connections-per-route</span><span class="pi">:</span> <span class="m">500</span>
+</code></pre></div></div>
+
+<h3 id="후기">후기</h3>
+
+<p>글을 작성하는 지금 시점에서는, 사실 어떻게 보면 리다이렉트가 되기 때문에 바로 해당 설정을 떠올릴 수도 있지 않았을까? 하는 생각도 듭니다.</p>
+
+<p>하지만 제가 최근에 TCP, HTTP를 공부하고 지인을 통해 <code class="language-plaintext highlighter-rouge">wireshark</code>로 패킷 분석도 하는 방법도 배웠는데, 이를 실제로 활용해보고 트러블슈팅 하는데에 힌트가 되어 삽질하는 시간을 조금이라도 줄였다고 생각이 듭니다.</p>
+
+<p>트러블 슈팅은 항상 어떻게 보면 해답은 간단하지만, 그 해답을 찾아가는 과정 자체는 간단하지 않은 것 같습니다.</p>
+
+<p>그리고 다시 한번 문제 해결을 하기 위해서는 이러한 기초 지식이 탄탄해야 한다는 것을  깨달으며 글을 마칩니다.</p>
+
+<h3 id="각주">각주</h3>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><code class="language-plaintext highlighter-rouge">wireshark</code>라는 패킷 캡처 프로그램을 통해 네트워크 상에 패킷이 어떻게 오고가는지 볼 수 있습니다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://docs.spring.io/spring-cloud-openfeign/reference/configprops.html">https://docs.spring.io/spring-cloud-openfeign/reference/configprops.html</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

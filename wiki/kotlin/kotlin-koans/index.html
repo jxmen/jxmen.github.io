@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>Kotlin Koans 필요한 내용 요약 - 박주영의 위키</title>
+
+    <meta name="description" content="Intellij에서 제공하는 Kotlin 튜토리얼 플러그인">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.dev/wiki/kotlin/kotlin-koans/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.dev/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kotlin Koans 필요한 내용 요약">
+    <meta property="og:description" content="Intellij에서 제공하는 Kotlin 튜토리얼 플러그인">
+    <!---
+    <meta property="og:image" content="https://jxmen.dev/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.dev/wiki/kotlin/kotlin-koans/">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.dev/wiki/kotlin/kotlin-koans/" />
+        <meta name="twitter:title" content="Kotlin Koans 필요한 내용 요약" />
+        <meta name="twitter:description" content="Intellij에서 제공하는 Kotlin 튜토리얼 플러그인" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="kotlin/kotlin-koans">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/kotlin/kotlin-koans/"> Kotlin Koans 필요한 내용 요약 </a>
+        </h1>
+    
+        <p class="title-summary">Intellij에서 제공하는 Kotlin 튜토리얼 플러그인</p>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/kotlin/kotlin-koans.md" target="_blank">created: 2024.01.29</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/kotlin/kotlin-koans.md" target="_blank">updated: 2024.02.10</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/kotlin/kotlin-koans.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=Kotlin+Koans+%ED%95%84%EC%9A%94%ED%95%9C+%EB%82%B4%EC%9A%A9+%EC%9A%94%EC%95%BD&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    kotlin
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#strings" id="markdown-toc-strings">Strings</a></li>
+  <li><a href="#null-%EB%8B%A4%EB%A3%A8%EA%B8%B0" id="markdown-toc-null-다루기">Null 다루기</a></li>
+  <li><a href="#smart-casts" id="markdown-toc-smart-casts">Smart casts</a></li>
+  <li><a href="#sealed-%ED%82%A4%EC%9B%8C%EB%93%9C" id="markdown-toc-sealed-키워드"><code class="language-plaintext highlighter-rouge">sealed</code> 키워드</a></li>
+  <li><a href="#associate" id="markdown-toc-associate">Associate</a></li>
+  <li><a href="#fold-and-reduce" id="markdown-toc-fold-and-reduce">Fold And Reduce</a></li>
+</ul>
+
+<h3 id="strings">Strings</h3>
+<ul>
+  <li>정규식을 선언할때도 큰따옴표 3개를 사용한다 <code class="language-plaintext highlighter-rouge">"""\d{2}"""</code>
+</li>
+</ul>
+
+<h3 id="null-다루기">Null 다루기</h3>
+<ul>
+  <li>let 구문과 옵셔널 체이닝(<code class="language-plaintext highlighter-rouge">?.</code>)을 조합하여, null이 아닐때만 괄호 안의 구문이 실행되도록 할 수 있다.
+    <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="n">message</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">mailer</span><span class="p">.</span><span class="nf">sendMessage</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">message</span><span class="p">)}</span> <span class="c1">// message를 it으로도 가능</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="smart-casts">Smart casts</h3>
+
+<ul>
+  <li>
+    <p>어떤 타입인지 체크할 경우 알아서 해당 타입에 대해 캐스팅이 된다. <a href="https://kotlinlang.org/docs/typecasts.html#smart-casts">링크</a></p>
+
+    <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="k">when</span> <span class="p">(</span><span class="n">expr</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">is</span> <span class="nc">Num</span> <span class="p">-&gt;</span> <span class="n">expr</span><span class="p">.</span><span class="n">value</span>
+      <span class="k">is</span> <span class="nc">Sum</span> <span class="p">-&gt;</span> <span class="nf">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">.</span><span class="n">left</span><span class="p">)</span> <span class="p">+</span> <span class="nf">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+      <span class="k">else</span> <span class="p">-&gt;</span> <span class="k">throw</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span><span class="s">"Unknown expression"</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="c1">// ... 중략</span>
+  <span class="kd">interface</span> <span class="nc">Expr</span>
+  <span class="kd">class</span> <span class="nc">Num</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
+  <span class="kd">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="kd">val</span> <span class="py">left</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">,</span> <span class="kd">val</span> <span class="py">right</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="sealed-키워드">
+<code class="language-plaintext highlighter-rouge">sealed</code> 키워드</h3>
+
+<ul>
+  <li>
+    <p>sealed로 정의될 경우, 다른 패키지나 모듈에서 접근할 수 없다. 패턴 매칭/when 등에서 유용하게 사용할 수 있다. <a href="https://kotlinlang.org/docs/sealed-classes.html">링크</a></p>
+
+    <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="k">sealed</span> <span class="kd">interface</span> <span class="nc">Expr</span>
+
+  <span class="kd">class</span> <span class="nc">Num</span><span class="p">(</span><span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
+  <span class="kd">class</span> <span class="nc">Sum</span><span class="p">(</span><span class="kd">val</span> <span class="py">left</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">,</span> <span class="kd">val</span> <span class="py">right</span><span class="p">:</span> <span class="nc">Expr</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Expr</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="associate">Associate</h3>
+
+<ul>
+  <li>
+    <p>Map 형태의 자료구조를 만들 때 유용하게 사용한다. <a href="https://kotlinlang.org/docs/collection-transformations.html#associate">링크</a></p>
+
+    <div class="language-kotlin highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"abc"</span><span class="p">,</span> <span class="s">"cdef"</span><span class="p">)</span>
+
+  <span class="n">list</span><span class="p">.</span><span class="nf">associateBy</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">first</span><span class="p">()</span> <span class="p">}</span> <span class="c1">// == mapOf('a' to "abc", 'c' to "cdef")</span>
+
+  <span class="n">list</span><span class="p">.</span><span class="nf">associateWith</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">length</span> <span class="p">}</span> <span class="c1">// == mapOf("abc" to 3, "cdef" to 4)</span>
+
+  <span class="n">list</span><span class="p">.</span><span class="nf">associate</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">first</span><span class="p">()</span> <span class="n">to</span> <span class="n">it</span><span class="p">.</span><span class="n">length</span> <span class="p">}</span> <span class="c1">// == mapOf('a' to 3, 'c' to 4)</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="fold-and-reduce">Fold And Reduce</h3>
+
+<ul>
+  <li>
+<a href="https://kotlinlang.org/docs/collection-aggregate.html#fold-and-reduce">링크</a>
+    <ul>
+      <li>초기값을 지정하고 싶을때는 <code class="language-plaintext highlighter-rouge">Fold</code>를 사용한다.</li>
+      <li>모든 축소 작업은 빈 컬렉션일때는 Exception을 발생한다. 이에 대응하려면 orNull을 사용하면 null로 받을 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>
