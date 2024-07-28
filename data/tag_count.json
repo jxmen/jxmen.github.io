@@ -45,7 +45,7 @@
  },
  {
   "name": "java",
-  "size": 3
+  "size": 4
  },
  {
   "name": "kotlin",
@@ -86,6 +86,10 @@
  {
   "name": "pattern",
   "size": 5
+ },
+ {
+  "name": "priority-queue",
+  "size": 1
  },
  {
   "name": "productivity",
