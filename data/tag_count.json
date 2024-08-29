@@ -33,7 +33,7 @@
  },
  {
   "name": "http",
-  "size": 4
+  "size": 3
  },
  {
   "name": "io",
@@ -117,10 +117,6 @@
  },
  {
   "name": "transaction",
-  "size": 1
- },
- {
-  "name": "trouble-shooting",
   "size": 1
  },
  {
