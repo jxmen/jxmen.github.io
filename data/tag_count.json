@@ -28,6 +28,10 @@
   "size": 3
  },
  {
+  "name": "fixture-monkey",
+  "size": 1
+ },
+ {
   "name": "git",
   "size": 2
  },
@@ -93,7 +97,7 @@
  },
  {
   "name": "project",
-  "size": 2
+  "size": 3
  },
  {
   "name": "review",
@@ -109,6 +113,10 @@
  },
  {
   "name": "tcp",
+  "size": 1
+ },
+ {
+  "name": "test",
   "size": 1
  },
  {

@@ -7,6 +7,7 @@
  "updated": "2024-02-11 02:23:28 +0900",
  "resource": "9C93F741-4CF3-4ABF-A787-B0E897290FF4",
  "children": [
+  "project/cs-ai-interviewer",
   "project/flash-card"
  ]
 }
