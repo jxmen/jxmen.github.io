@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP 완벽 가이드 요약
 summary : 
 date    : 2024-03-29 15:03:19 +0900
-updated : 2024-09-02 02:51:13 +0900
+updated : 2024-09-02 02:52:54 +0900
 tag     : http
 toc     : true
 public  : true
@@ -45,7 +45,7 @@ URI
 telnet이란
 - 텔넷 유틸리티가 HTTP 요청을 수행하기 전 TCP 연결을 해주는 역할을 한다. 
 
-HTTP는 여러 버전을 통해 발전해왔따.
+HTTP는 여러 버전을 통해 발전해왔다.
 
 - HTTP/0.9: 프로토타입용
 - HTTP/1.0: keep-alive 커넥션, 가상 호스팅 지원, 프락시 연결 지원
