@@ -3,7 +3,7 @@ layout  : wiki
 title   : free
 summary : 시스템의 메모리 정보 확인
 date    : 2024-09-01 14:48:07 +0900
-updated : 2024-09-01 15:54:17 +0900
+updated : 2024-09-01 22:15:05 +0900
 tag     : commands
 toc     : true
 public  : true
@@ -47,5 +47,5 @@ free -s 1
 
 ### 같이 보면 좋은 명령어
 
-- top
+- [[/commands/top]]
 
