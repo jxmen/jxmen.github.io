@@ -1,5 +1,6 @@
 [
  "commands/free",
  "commands/tcpdump",
- "commands/tmux"
+ "commands/tmux",
+ "commands/top"
 ]
