@@ -3,7 +3,7 @@ layout  : wiki
 title   : Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자 
 summary : 
 date    : 2024-08-29 22:27:24 +0900
-updated : 2024-08-30 00:27:08 +0900
+updated : 2024-09-01 21:46:54 +0900
 tag     : test fixture-monkey
 toc     : true
 public  : true
@@ -16,7 +16,7 @@ resource: 1D083588-F665-472C-B351-C85891766FA3
 
 ### 개요
 
-Naver의 오픈소스인 Fixture Monkey를 프로젝트에 적용하여 테스트 픽스처를 쉽게 생성하고, 기존 코드를 리팩토링 하는 과정을 소개하도록 하겠습니다.
+Naver의 오픈소스인 [Fixture Monkey](https://github.com/naver/fixture-monkey)를 프로젝트에 적용하여 테스트 픽스처를 쉽게 생성하고, 기존 코드를 리팩토링 하는 과정을 소개하도록 하겠습니다.
 
 ### 기존 테스트 코드의 문제점
 
