@@ -9,7 +9,11 @@
  },
  {
   "name": "command",
-  "size": 2
+  "size": 1
+ },
+ {
+  "name": "commands",
+  "size": 3
  },
  {
   "name": "cors",

@@ -3,8 +3,8 @@ layout  : wiki
 title   : tmux 설정 및 단축키
 summary : 자꾸 까먹어서 기록용으로 남기는 문서
 date    : 2024-02-11 02:28:26 +0900
-updated : 2024-02-11 02:52:50 +0900
-tag     : command tmux 
+updated : 2024-09-01 15:55:08 +0900
+tag     : commands tmux 
 toc     : true
 public  : true
 parent  : [[/commands]] 

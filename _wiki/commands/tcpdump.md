@@ -3,8 +3,8 @@ layout  : wiki
 title   : tcpdump 
 summary : tcp 패킷 캡처 명령어 
 date    : 2024-02-29 17:48:01 +0900
-updated : 2024-08-11 18:22:10 +0900
-tag     : tcp 
+updated : 2024-09-01 15:55:01 +0900
+tag     : tcp commands
 toc     : true
 public  : true
 parent  : [[/commands]] 

@@ -4,7 +4,7 @@
  "summary": "tcp 패킷 캡처 명령어",
  "parent": "commands",
  "url": "/wiki/commands/tcpdump",
- "updated": "2024-08-11 18:22:10 +0900",
+ "updated": "2024-09-01 15:55:01 +0900",
  "resource": "52A1BEFB-32CE-41AA-A5AE-22940E6E50F0",
  "children": []
 }
