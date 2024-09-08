@@ -1,4 +1,3 @@
 [
- "cs/os/blocking-io-vs-non-blocking-io",
- "cs/os/cpu-bound-vs-io-bound"
+ "cs/os/blocking-io-vs-non-blocking-io"
 ]

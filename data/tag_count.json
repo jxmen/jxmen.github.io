@@ -20,10 +20,6 @@
   "size": 1
  },
  {
-  "name": "cpu",
-  "size": 1
- },
- {
   "name": "CS",
   "size": 1
  },
@@ -49,7 +45,7 @@
  },
  {
   "name": "io",
-  "size": 2
+  "size": 1
  },
  {
   "name": "java",
