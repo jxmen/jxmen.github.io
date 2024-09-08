@@ -27,6 +27,8 @@
  "/wiki/cs/os/blocking-io-vs-non-blocking-io",
  "/wiki/cs/os/cpu-bound-vs-io-bound",
  "/wiki/cs/os/summary",
+ "/wiki/dsa",
+ "/wiki/dsa/coding-test-technics",
  "/wiki/git",
  "/wiki/git/manual",
  "/wiki/http",
@@ -50,6 +52,5 @@
  "/wiki/project",
  "/wiki/project/cs-ai-interviewer",
  "/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey",
- "/wiki/project/flash-card",
  "/wiki/rfc"
 ]

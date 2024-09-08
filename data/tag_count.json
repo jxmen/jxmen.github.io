@@ -32,6 +32,10 @@
   "size": 3
  },
  {
+  "name": "dsa",
+  "size": 2
+ },
+ {
   "name": "fixture-monkey",
   "size": 1
  },
@@ -101,7 +105,7 @@
  },
  {
   "name": "project",
-  "size": 3
+  "size": 2
  },
  {
   "name": "review",
