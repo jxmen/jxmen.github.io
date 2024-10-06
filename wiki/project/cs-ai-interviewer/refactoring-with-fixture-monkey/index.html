@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.github.io/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.github.io/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.github.io/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.github.io/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/">
+
+    <meta name="google-site-verification" content="IoNEKzwdxuYHx0g2nEWusOJ2kK0ompxgUZ-evn27Vlk">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.github.io/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/" />
+        <meta name="twitter:title" content="Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="project/cs-ai-interviewer/refactoring-with-fixture-monkey">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/"> Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey.md" target="_blank">created: 2024.08.29</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey.md" target="_blank">updated: 2024.09.01</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=Fixture+Monkey%EB%A1%9C+%ED%85%8C%EC%8A%A4%ED%8A%B8+%ED%94%BD%EC%8A%A4%EC%B2%98%EB%A5%BC+%EC%89%BD%EA%B2%8C+%EC%83%9D%EC%84%B1%ED%95%98%EA%B3%A0+%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81+%ED%95%B4%EB%B3%B4%EC%9E%90&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    test fixture-monkey
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#%EA%B0%9C%EC%9A%94" id="markdown-toc-개요">개요</a></li>
+  <li><a href="#%EA%B8%B0%EC%A1%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90" id="markdown-toc-기존-테스트-코드의-문제점">기존 테스트 코드의 문제점</a></li>
+  <li><a href="#fixture-monkey%EB%A5%BC-%ED%86%B5%ED%95%B4-%EA%B0%9C%EC%84%A0%ED%95%B4%EB%B3%B4%EC%9E%90" id="markdown-toc-fixture-monkey를-통해-개선해보자">Fixture Monkey를 통해 개선해보자.</a></li>
+  <li><a href="#%EC%A4%91%EC%B2%A9%EB%90%9C-property%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C%EB%8F%84-%EC%A0%95%EC%9D%98%ED%95%98%EC%97%AC-%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%8D%94-%EA%B0%9C%EC%84%A0%ED%95%B4%EB%B3%B4%EC%9E%90" id="markdown-toc-중첩된-property에-대해서도-정의하여-코드를-더-개선해보자">중첩된 property에 대해서도 정의하여 코드를 더 개선해보자</a></li>
+  <li><a href="#%EB%A7%88%EB%AC%B4%EB%A6%AC" id="markdown-toc-마무리">마무리</a></li>
+  <li><a href="#reference" id="markdown-toc-reference">Reference</a></li>
+</ul>
+
+<h3 id="개요">개요</h3>
+
+<p>Naver의 오픈소스인 <a href="https://github.com/naver/fixture-monkey">Fixture Monkey</a>를 프로젝트에 적용하여 테스트 픽스처를 쉽게 생성하고, 기존 코드를 리팩토링 하는 과정을 소개하도록 하겠습니다.</p>
+
+<h3 id="기존-테스트-코드의-문제점">기존 테스트 코드의 문제점</h3>
+
+<p>평소와 같이 테스트를 작성하던 날이였습니다. Spring AI를 사용중인 프로젝트에서 Prompt 메시지들을 생성하는 로직을 <code class="language-plaintext highlighter-rouge">PromptMessageFactory</code>로 추출하였고, 이에 대한 테스트 코드를 작성하려고 하였습니다.</p>
+
+<p>Kotlin의 mocking 라이브러리인 <code class="language-plaintext highlighter-rouge">mockk</code>로 코드를 작성한 코드는 다음과 같은 형태였습니다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">it</span><span class="p">(</span><span class="s">"이전 채팅이 있을 때 권한 부여, 질문에 대한 답변, 이전 답변, 사용자 답변 메시지 목록을 반환한다"</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">val</span> <span class="py">command</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">CreateSubjectAnswerCommand</span><span class="p">&gt;()</span>
+	<span class="kd">val</span> <span class="py">chat1</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;()</span>
+	<span class="kd">val</span> <span class="py">chat2</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;()</span>
+	<span class="kd">val</span> <span class="py">chat3</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;()</span>
+	<span class="kd">val</span> <span class="py">chatContent1</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">ChatContent</span><span class="p">&gt;()</span>
+	<span class="kd">val</span> <span class="py">chatContent2</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">ChatContent</span><span class="p">&gt;()</span>
+	<span class="kd">val</span> <span class="py">chatContent3</span> <span class="p">=</span> <span class="n">mockk</span><span class="p">&lt;</span><span class="nc">ChatContent</span><span class="p">&gt;()</span>
+
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">command</span><span class="p">.</span><span class="n">answer</span> <span class="p">}</span> <span class="n">returns</span> <span class="s">"이것은 답변입니다"</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">command</span><span class="p">.</span><span class="n">chats</span> <span class="p">}</span> <span class="n">returns</span> <span class="nf">listOf</span><span class="p">(</span><span class="n">chat1</span><span class="p">,</span> <span class="n">chat2</span><span class="p">,</span> <span class="n">chat3</span><span class="p">)</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">command</span><span class="p">.</span><span class="n">subject</span><span class="p">.</span><span class="n">question</span> <span class="p">}</span> <span class="n">returns</span> <span class="s">"AI란 무엇인가요?"</span>
+
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat1</span><span class="p">.</span><span class="nf">isAnswer</span><span class="p">()</span> <span class="p">}</span> <span class="n">returns</span> <span class="k">false</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat1</span><span class="p">.</span><span class="nf">isQuestion</span><span class="p">()</span> <span class="p">}</span> <span class="n">returns</span> <span class="k">true</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat1</span><span class="p">.</span><span class="n">content</span> <span class="p">}</span> <span class="n">returns</span> <span class="n">chatContent1</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chatContent1</span><span class="p">.</span><span class="n">message</span> <span class="p">}</span> <span class="n">returns</span> <span class="s">"질문"</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat2</span><span class="p">.</span><span class="nf">isAnswer</span><span class="p">()</span> <span class="p">}</span> <span class="n">returns</span> <span class="k">true</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat2</span><span class="p">.</span><span class="nf">isQuestion</span><span class="p">()</span> <span class="p">}</span> <span class="n">returns</span> <span class="k">false</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat2</span><span class="p">.</span><span class="n">content</span> <span class="p">}</span> <span class="n">returns</span> <span class="n">chatContent2</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chatContent2</span><span class="p">.</span><span class="n">message</span> <span class="p">}</span> <span class="n">returns</span> <span class="s">"답변"</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat3</span><span class="p">.</span><span class="nf">isAnswer</span><span class="p">()</span> <span class="p">}</span> <span class="n">returns</span> <span class="k">false</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat3</span><span class="p">.</span><span class="nf">isQuestion</span><span class="p">()</span> <span class="p">}</span> <span class="n">returns</span> <span class="k">true</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chat3</span><span class="p">.</span><span class="n">content</span> <span class="p">}</span> <span class="n">returns</span> <span class="n">chatContent3</span>
+	<span class="nf">every</span> <span class="p">{</span> <span class="n">chatContent3</span><span class="p">.</span><span class="n">message</span> <span class="p">}</span> <span class="n">returns</span> <span class="s">"꼬리 질문"</span>
+
+	<span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+	<span class="n">result</span> <span class="n">shouldHaveSize</span> <span class="mi">5</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="n">grantInterviewerRoleMessage</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">getAiAnswerContentFromQuestion</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">subject</span><span class="p">.</span><span class="n">question</span><span class="p">))</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">chatContent2</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="n">chatContent3</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">answer</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>무언가 안좋은 신호가 있는 것 같지 않나요?</p>
+
+<p>가장 큰 문제점은 테스트를 작성하기 위해 굉장히 많은 양의 코드를 작성해야 한다는 것이라고 생각했습니다. 또한 내부 로직의 경우 다음과 같이 <code class="language-plaintext highlighter-rouge">isAnswer</code>, <code class="language-plaintext highlighter-rouge">isQuestion</code> 메서드 값에 따라 영향을 받습니다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 내부 private 메서드 내용</span>
+<span class="k">private</span> <span class="k">fun</span> <span class="nf">createMessagesFromBeforeChats</span><span class="p">(</span><span class="n">chats</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;):</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Message</span><span class="p">&gt;</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">chats</span><span class="p">.</span><span class="nf">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span>
+		<span class="k">when</span> <span class="p">{</span>
+			<span class="n">it</span><span class="p">.</span><span class="nf">isAnswer</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+			<span class="n">it</span><span class="p">.</span><span class="nf">isQuestion</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+			<span class="k">else</span> <span class="p">-&gt;</span> <span class="k">throw</span> <span class="nc">IllegalArgumentException</span><span class="p">(</span><span class="s">"Unknown chat type"</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>저는 해당 부분에 대해서만 집중해서 테스트를 작성하고 싶으나, 내부 객체인 content, content.message 등 로직 검증에 중요하지 않은 것들까지 mocking해야 한다는 점 또한 문제라고 생각됩니다.</p>
+
+<h3 id="fixture-monkey를-통해-개선해보자">Fixture Monkey를 통해 개선해보자.</h3>
+
+<p>Naver에서는 Fixture Monkey라는 테스트 픽스처를 쉽게 생성하기 위한 오픈소스를 제공합니다. 테스트 객체를 굉장히 쉽게 만들 수 있다는 점이죠! Chat이라는 클래스에 대한 테스트 객체를 만들고 싶다면 다음과 같이 작성할 수 있습니다:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">fixtureMonkey</span> <span class="p">=</span> <span class="nc">FixtureMonkey</span><span class="p">.</span><span class="nf">builder</span><span class="p">().</span><span class="nf">plugin</span><span class="p">(</span><span class="nc">KotlinPlugin</span><span class="p">()).</span><span class="nf">build</span><span class="p">()</span>
+<span class="kd">val</span> <span class="py">chatFixture</span><span class="p">:</span> <span class="nc">Chat</span> <span class="p">=</span> <span class="n">fixtureMonkey</span><span class="p">.</span><span class="nf">giveMeOne</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>또한 필요한 프로퍼티만 지정하거나, 식을 넣을 수 있고 그 외에 값은 랜덤한 값을 채워준다는 특징이 있습니다.</p>
+
+<p>다음은 fixture monkey로 작성한 코드입니다. chat은 ChatContent를 가지고 있고, 질문과 답변이냐에 따라 question, answer등의 타입으로 구분합니다. 그래서 다음과 같이 작성했습니다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">it</span><span class="p">(</span><span class="s">"이전 채팅이 있을 때, 첫 채팅을 잘라낸 메시지 목록을 반환해야 합니다"</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// given</span>
+	<span class="kd">val</span> <span class="py">questionContent</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">ChatContent</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">ChatContent</span><span class="o">::</span><span class="n">chatType</span><span class="p">,</span> <span class="nc">ChatType</span><span class="p">.</span><span class="nc">QUESTION</span><span class="p">)</span>
+			<span class="p">.</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">answerContent</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">ChatContent</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">ChatContent</span><span class="o">::</span><span class="n">chatType</span><span class="p">,</span> <span class="nc">ChatType</span><span class="p">.</span><span class="nc">ANSWER</span><span class="p">)</span>
+			<span class="p">.</span><span class="nf">sample</span><span class="p">()</span>
+
+	<span class="kd">val</span> <span class="py">firstQuestionChat</span> <span class="p">=</span> <span class="n">fixtureMonkey</span><span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;().</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">Chat</span><span class="o">::</span><span class="n">content</span><span class="p">,</span> <span class="n">questionContent</span><span class="p">).</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">answerChat</span> <span class="p">=</span> <span class="n">fixtureMonkey</span><span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;().</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">Chat</span><span class="o">::</span><span class="n">content</span><span class="p">,</span> <span class="n">answerContent</span><span class="p">).</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">questionChat</span> <span class="p">=</span> <span class="n">fixtureMonkey</span><span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;().</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">Chat</span><span class="o">::</span><span class="n">content</span><span class="p">,</span> <span class="n">questionContent</span><span class="p">).</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">command</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">CreateSubjectAnswerCommand</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span>
+				<span class="nc">CreateSubjectAnswerCommand</span><span class="o">::</span><span class="n">chats</span><span class="p">,</span>
+				<span class="nf">listOf</span><span class="p">(</span><span class="n">firstQuestionChat</span><span class="p">,</span> <span class="n">answerChat</span><span class="p">,</span> <span class="n">questionChat</span><span class="p">),</span>
+			<span class="p">).</span><span class="nf">sample</span><span class="p">()</span>
+
+	<span class="c1">// when</span>
+	<span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+	<span class="c1">// then</span>
+	<span class="n">result</span> <span class="n">shouldHaveSize</span> <span class="mi">5</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="n">grantInterviewerRoleMessage</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">getAiAnswerContentFromQuestion</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">subject</span><span class="p">.</span><span class="n">question</span><span class="p">))</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">answerChat</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="n">questionChat</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">answer</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>ChatContent들을 fixtureMonkey를 통해 타입이 지정된 값으로 생성하고, 채팅에 chatContent를 세팅하도록 하였습니다.</p>
+
+<p>하지만 이 코드 역시 조금 아쉽습니다. Chat을 생성할 때부터 내부 Content에 대한 값을 지정할 수는 없을까요?</p>
+
+<h3 id="중첩된-property에-대해서도-정의하여-코드를-더-개선해보자">중첩된 property에 대해서도 정의하여 코드를 더 개선해보자</h3>
+
+<p>정말 다행히도 <a href="https://naver.github.io/fixture-monkey/v1-0-0-kor/docs/plugins/kotlin-plugin/kotlin-exp/#%ec%a4%91%ec%b2%a9%eb%90%9c-%ed%94%84%eb%a1%9c%ed%8d%bc%ed%8b%b0%eb%a5%bc-%ec%b0%b8%ec%a1%b0">중첩된 프로퍼티</a>에 대해서 선언하는 것도 지원합니다.</p>
+
+<p>그래서 다음과 같이 코드를 변경하였습니다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">it</span><span class="p">(</span><span class="s">"이전 채팅이 있을 때, 첫 채팅을 잘라낸 메시지 목록을 반환해야 합니다"</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// given</span>
+	<span class="kd">val</span> <span class="py">firstQuestionChat</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">Chat</span><span class="o">::</span><span class="n">content</span> <span class="n">into</span> <span class="nc">ChatContent</span><span class="o">::</span><span class="n">chatType</span><span class="p">,</span> <span class="nc">ChatType</span><span class="p">.</span><span class="nc">QUESTION</span><span class="p">)</span>
+			<span class="p">.</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">answerChat</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">Chat</span><span class="o">::</span><span class="n">content</span> <span class="n">into</span> <span class="nc">ChatContent</span><span class="o">::</span><span class="n">chatType</span><span class="p">,</span> <span class="nc">ChatType</span><span class="p">.</span><span class="nc">ANSWER</span><span class="p">)</span>
+			<span class="p">.</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">questionChat</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">Chat</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">Chat</span><span class="o">::</span><span class="n">content</span> <span class="n">into</span> <span class="nc">ChatContent</span><span class="o">::</span><span class="n">chatType</span><span class="p">,</span> <span class="nc">ChatType</span><span class="p">.</span><span class="nc">QUESTION</span><span class="p">)</span>
+			<span class="p">.</span><span class="nf">sample</span><span class="p">()</span>
+	<span class="kd">val</span> <span class="py">command</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">CreateSubjectAnswerCommand</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span>
+				<span class="nc">CreateSubjectAnswerCommand</span><span class="o">::</span><span class="n">chats</span><span class="p">,</span>
+				<span class="nf">listOf</span><span class="p">(</span><span class="n">firstQuestionChat</span><span class="p">,</span> <span class="n">answerChat</span><span class="p">,</span> <span class="n">questionChat</span><span class="p">),</span>
+			<span class="p">).</span><span class="nf">sample</span><span class="p">()</span>
+
+	<span class="c1">// when</span>
+	<span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+	<span class="c1">// then</span>
+	<span class="n">result</span> <span class="n">shouldHaveSize</span> <span class="mi">5</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="n">grantInterviewerRoleMessage</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">getAiAnswerContentFromQuestion</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">subject</span><span class="p">.</span><span class="n">question</span><span class="p">))</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">answerChat</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="n">questionChat</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">answer</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>question chat을 생성하는 부분이 중복되어, private method로 추출했습니다.</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">it</span><span class="p">(</span><span class="s">"이전 채팅이 있을 때, 첫 채팅을 잘라낸 메시지 목록을 반환해야 합니다"</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// given</span>
+	<span class="kd">val</span> <span class="py">firstQuestionChat</span> <span class="p">=</span> <span class="nf">createQuestionChat</span><span class="p">(</span><span class="n">fixtureMonkey</span><span class="p">)</span> <span class="c1">// use private function</span>
+	<span class="kd">val</span> <span class="py">answerChat</span> <span class="p">=</span> <span class="nf">createAnswerChat</span><span class="p">(</span><span class="n">fixtureMonkey</span><span class="p">)</span> <span class="c1">// use private function</span>
+	<span class="kd">val</span> <span class="py">questionChat</span> <span class="p">=</span> <span class="nf">createQuestionChat</span><span class="p">(</span><span class="n">fixtureMonkey</span><span class="p">)</span> <span class="c1">// use private function</span>
+	<span class="kd">val</span> <span class="py">command</span> <span class="p">=</span>
+		<span class="n">fixtureMonkey</span>
+			<span class="p">.</span><span class="n">giveMeBuilder</span><span class="p">&lt;</span><span class="nc">CreateSubjectAnswerCommand</span><span class="p">&gt;()</span>
+			<span class="p">.</span><span class="nf">setExp</span><span class="p">(</span><span class="nc">CreateSubjectAnswerCommand</span><span class="o">::</span><span class="n">chats</span><span class="p">,</span> <span class="nf">listOf</span><span class="p">(</span><span class="n">firstQuestionChat</span><span class="p">,</span> <span class="n">answerChat</span><span class="p">,</span> <span class="n">questionChat</span><span class="p">))</span>
+			<span class="p">.</span><span class="nf">sample</span><span class="p">()</span>
+
+	<span class="c1">// when</span>
+	<span class="kd">val</span> <span class="py">result</span> <span class="p">=</span> <span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+
+	<span class="c1">// then</span>
+	<span class="n">result</span> <span class="n">shouldHaveSize</span> <span class="mi">5</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="n">grantInterviewerRoleMessage</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="nc">PromptMessageFactory</span><span class="p">.</span><span class="nf">getAiAnswerContentFromQuestion</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">subject</span><span class="p">.</span><span class="n">question</span><span class="p">))</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">answerChat</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">AssistantMessage</span><span class="p">(</span><span class="n">questionChat</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+	<span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">shouldBe</span> <span class="nc">UserMessage</span><span class="p">(</span><span class="n">command</span><span class="p">.</span><span class="n">answer</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>이렇게 변경이 완료되었습니다! 처음 코드와 비교했을때 굉장히 간결하게 변경되었습니다.</p>
+
+<h3 id="마무리">마무리</h3>
+
+<p>Fixture Monkey를 통해 더 빠르게 테스트를 작성하고, 로직 검증 시 중요한 부분에만 집중할 수 있게 되었습니다.</p>
+
+<p>테스트 픽스처를 생성할 때 시간이 많이 소요되어 테스트 작성 시 걸림돌이 된다면, 사용해보시는 것을 추천합니다.</p>
+
+<h3 id="reference">Reference</h3>
+
+<ul>
+  <li><a href="https://github.com/naver/fixture-monkey">Fixture Monkey GitHub</a></li>
+  <li><a href="https://naver.github.io/fixture-monkey">Fixture Monkey Docs</a></li>
+</ul>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

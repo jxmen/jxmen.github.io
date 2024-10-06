@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.github.io/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.github.io/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.github.io/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.github.io/">
+
+    <meta name="google-site-verification" content="IoNEKzwdxuYHx0g2nEWusOJ2kK0ompxgUZ-evn27Vlk">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.github.io/" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+    <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+    <div class="blog-face">
+    <div>
+        <h3>
+            <a href="https://github.com/vimwiki/vimwiki">Vimwiki</a>
+            +
+            <a href="https://jekyllrb.com/">Jekyll</a>
+            +
+            <a href="https://pages.github.com/">Github.io</a>
+        </h3>
+    </div>
+    <div>
+        <!---
+        <a href="/blog/">블로그</a>
+        /
+        -->
+        <a href="/tag/">태그</a>
+        <p>단축키 도움말: ctrl + g</p>
+    </div>
+    <div class="contact">
+
+        <a href="https://github.com/jxmen">GitHub</a>
+
+
+
+        <a href="mailto:me@jxmen.dev">Email</a>
+
+        <a href="/feed.xml">RSS</a>
+    </div>
+</div>
+<div>
+    <h3 class="indent">최근 변경된 문서</h3>
+    <ul class="post-list">
+
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/dsa/coding-test-technics/">
+                    <div class="post-meta">
+                        2024.10.06
+                        -
+                        코딩 테스트를 위한 테크닉 및 문법 정리
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            dsa
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/dsa/">
+                    <div class="post-meta">
+                        2024.09.02
+                        -
+                        자료구조/알고리즘
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            dsa
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/book/summary/http-perfect-guide/">
+                    <div class="post-meta">
+                        2024.09.02
+                        -
+                        HTTP 완벽 가이드 요약
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            http
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/commands/free/">
+                    <div class="post-meta">
+                        2024.09.01
+                        -
+                        free
+                    </div>
+                    <div class="post-excerpt">시스템의 메모리 정보 확인</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            commands
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/">
+                    <div class="post-meta">
+                        2024.09.01
+                        -
+                        Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            test fixture-monkey
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/commands/top/">
+                    <div class="post-meta">
+                        2024.09.01
+                        -
+                        top
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            commands
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/commands/tmux/">
+                    <div class="post-meta">
+                        2024.09.01
+                        -
+                        tmux 설정 및 단축키
+                    </div>
+                    <div class="post-excerpt">자꾸 까먹어서 기록용으로 남기는 문서</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            commands tmux
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/commands/tcpdump/">
+                    <div class="post-meta">
+                        2024.09.01
+                        -
+                        tcpdump
+                    </div>
+                    <div class="post-excerpt">tcp 패킷 캡처 명령어</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            tcp commands
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/project/cs-ai-interviewer/">
+                    <div class="post-meta">
+                        2024.08.29
+                        -
+                        CS AI 모의면접 프로젝트
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            project
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/data-structure/java-pq/">
+                    <div class="post-meta">
+                        2024.07.28
+                        -
+                        Java에서 우선순위 큐 사용 시 주의사항
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            java priority-queue
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/book/review/http-perfect-guide/">
+                    <div class="post-meta">
+                        2024.06.07
+                        -
+                        HTTP 완벽가이드 서평
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            http book review
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/nvim/">
+                    <div class="post-meta">
+                        2024.05.13
+                        -
+                        Neovim
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            vim nvim neovim
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/rfc/">
+                    <div class="post-meta">
+                        2024.05.11
+                        -
+                        RFC(Request For Comments)
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            rfc
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/productivity/nvim-leetcode/">
+                    <div class="post-meta">
+                        2024.05.10
+                        -
+                        neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            productivity nvim lazyvim leetcode
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/productivity/">
+                    <div class="post-meta">
+                        2024.05.10
+                        -
+                        생산성
+                    </div>
+                    <div class="post-excerpt">생산성을 올린 경험, 설정 방법, 인사이트를 공유합니다.</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            vim, nvim
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/book/review/">
+                    <div class="post-meta">
+                        2024.05.07
+                        -
+                        리뷰
+                    </div>
+                    <div class="post-excerpt">책을 읽고 느낀점, 인사이트를 정리한다.</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            book review
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/data-structure/bst/">
+                    <div class="post-meta">
+                        2024.04.02
+                        -
+                        Binary Search Tree
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/data-structure/">
+                    <div class="post-meta">
+                        2024.03.26
+                        -
+                        자료구조
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/book/summary/">
+                    <div class="post-meta">
+                        2024.03.25
+                        -
+                        책 요약
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/book/">
+                    <div class="post-meta">
+                        2024.03.25
+                        -
+                        책
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            book
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/book/summary/object/">
+                    <div class="post-meta">
+                        2024.03.25
+                        -
+                        오브젝트 내용 요약
+                    </div>
+                    <div class="post-excerpt">책 &lt;오브젝트&gt;의 내용을 요약한다.</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            oop
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/os/">
+                    <div class="post-meta">
+                        2024.02.29
+                        -
+                        운영체제
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            os
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/os/blocking-io-vs-non-blocking-io/">
+                    <div class="post-meta">
+                        2024.02.29
+                        -
+                        Blocking I/O vs Non-Blocking I/O
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            io
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/network/tcp-sending-and-receiving/">
+                    <div class="post-meta">
+                        2024.02.29
+                        -
+                        TCP 송/수신 원리
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/network/">
+                    <div class="post-meta">
+                        2024.02.29
+                        -
+                        네트워크
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            network
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/http/cors/">
+                    <div class="post-meta">
+                        2024.02.28
+                        -
+                        CORS
+                    </div>
+                    <div class="post-excerpt">Cross Origin Resource Sharing</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            cors
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/http/">
+                    <div class="post-meta">
+                        2024.02.28
+                        -
+                        HTTP
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            http
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/os/summary/">
+                    <div class="post-meta">
+                        2024.02.27
+                        -
+                        운영체제 용어 정리
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/database/summary/">
+                    <div class="post-meta">
+                        2024.02.27
+                        -
+                        데이터베이스 용어 정리
+                    </div>
+                    <div class="post-excerpt"></div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            database
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    
+        <li>
+            <div class="post-item">
+                <a class="post-link" href="/wiki/cs/algorithm/sort/">
+                    <div class="post-meta">
+                        2024.02.25
+                        -
+                        정렬
+                    </div>
+                    <div class="post-excerpt">정렬의 종류, 언어에서 제공하는 정렬 등</div>
+                    <ul class="tag-list">
+                        <li class="post-tag">
+                            algorithm sort
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </li>
+    
+
+    </ul>
+    <h4>
+        <a href="/recent/">전체 문서 리스트 보기 (52 항목)</a>
+    </h4>
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+
+    <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

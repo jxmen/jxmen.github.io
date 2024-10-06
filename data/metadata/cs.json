@@ -1,0 +1,17 @@
+{
+ "type": "wiki",
+ "title": "CS 지식 정리",
+ "summary": "",
+ "parent": "index",
+ "url": "/wiki/cs",
+ "updated": "2024-02-19 23:46:53 +0900",
+ "resource": "5369A62D-862F-415D-9BE6-2F7F6C2C38BB",
+ "children": [
+  "cs/algorithm",
+  "cs/concurrency-issue",
+  "cs/data-structure",
+  "cs/database",
+  "cs/network",
+  "cs/os"
+ ]
+}

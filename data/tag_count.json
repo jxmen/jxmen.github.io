@@ -1,0 +1,142 @@
+[
+ {
+  "name": "algorithm",
+  "size": 2
+ },
+ {
+  "name": "book",
+  "size": 4
+ },
+ {
+  "name": "command",
+  "size": 1
+ },
+ {
+  "name": "commands",
+  "size": 4
+ },
+ {
+  "name": "cors",
+  "size": 1
+ },
+ {
+  "name": "CS",
+  "size": 1
+ },
+ {
+  "name": "database",
+  "size": 3
+ },
+ {
+  "name": "dsa",
+  "size": 2
+ },
+ {
+  "name": "fixture-monkey",
+  "size": 1
+ },
+ {
+  "name": "git",
+  "size": 2
+ },
+ {
+  "name": "http",
+  "size": 3
+ },
+ {
+  "name": "io",
+  "size": 1
+ },
+ {
+  "name": "java",
+  "size": 4
+ },
+ {
+  "name": "kotlin",
+  "size": 2
+ },
+ {
+  "name": "lazyvim",
+  "size": 1
+ },
+ {
+  "name": "leetcode",
+  "size": 1
+ },
+ {
+  "name": "mac",
+  "size": 2
+ },
+ {
+  "name": "neovim",
+  "size": 1
+ },
+ {
+  "name": "network",
+  "size": 1
+ },
+ {
+  "name": "nvim",
+  "size": 3
+ },
+ {
+  "name": "oop",
+  "size": 1
+ },
+ {
+  "name": "os",
+  "size": 1
+ },
+ {
+  "name": "pattern",
+  "size": 5
+ },
+ {
+  "name": "priority-queue",
+  "size": 1
+ },
+ {
+  "name": "productivity",
+  "size": 1
+ },
+ {
+  "name": "project",
+  "size": 2
+ },
+ {
+  "name": "review",
+  "size": 2
+ },
+ {
+  "name": "rfc",
+  "size": 1
+ },
+ {
+  "name": "sort",
+  "size": 1
+ },
+ {
+  "name": "tcp",
+  "size": 1
+ },
+ {
+  "name": "test",
+  "size": 1
+ },
+ {
+  "name": "tmux",
+  "size": 1
+ },
+ {
+  "name": "transaction",
+  "size": 1
+ },
+ {
+  "name": "vim",
+  "size": 1
+ },
+ {
+  "name": "vim,",
+  "size": 1
+ }
+]

@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>박주영의 위키</title>
+    <description></description>
+    <link>https://jxmen.github.io/</link>
+    <atom:link href="https://jxmen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 06 Oct 2024 23:07:08 +0900</pubDate>
+    <lastBuildDate>Sun, 06 Oct 2024 23:07:08 +0900</lastBuildDate>
+    <generator>Jekyll v4.3.4</generator>
+
+
+    
+      <item>
+        <title>코딩 테스트를 위한 테크닉 및 문법 정리</title>
+        <description></description>
+        <pubDate>Sun, 06 Oct 2024 23:00:59 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/dsa/coding-test-technics/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/dsa/coding-test-technics/</guid>
+        
+        <category>dsa</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>자료구조/알고리즘</title>
+        <description></description>
+        <pubDate>Mon, 02 Sep 2024 17:31:32 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/dsa/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/dsa/</guid>
+        
+        <category>dsa</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>HTTP 완벽 가이드 요약</title>
+        <description></description>
+        <pubDate>Mon, 02 Sep 2024 02:52:54 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/summary/http-perfect-guide/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/summary/http-perfect-guide/</guid>
+        
+        <category>http</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>free</title>
+        <description>시스템의 메모리 정보 확인</description>
+        <pubDate>Sun, 01 Sep 2024 22:15:05 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/commands/free/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/commands/free/</guid>
+        
+        <category>commands</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Fixture Monkey로 테스트 픽스처를 쉽게 생성하고 리팩토링 해보자</title>
+        <description></description>
+        <pubDate>Sun, 01 Sep 2024 21:46:54 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/project/cs-ai-interviewer/refactoring-with-fixture-monkey/</guid>
+        
+        <category>test fixture-monkey</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>top</title>
+        <description></description>
+        <pubDate>Sun, 01 Sep 2024 15:59:11 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/commands/top/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/commands/top/</guid>
+        
+        <category>commands</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>tmux 설정 및 단축키</title>
+        <description>자꾸 까먹어서 기록용으로 남기는 문서</description>
+        <pubDate>Sun, 01 Sep 2024 15:55:08 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/commands/tmux/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/commands/tmux/</guid>
+        
+        <category>commands tmux</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>tcpdump</title>
+        <description>tcp 패킷 캡처 명령어</description>
+        <pubDate>Sun, 01 Sep 2024 15:55:01 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/commands/tcpdump/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/commands/tcpdump/</guid>
+        
+        <category>tcp commands</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>CS AI 모의면접 프로젝트</title>
+        <description></description>
+        <pubDate>Thu, 29 Aug 2024 22:25:44 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/project/cs-ai-interviewer/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/project/cs-ai-interviewer/</guid>
+        
+        <category>project</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Java에서 우선순위 큐 사용 시 주의사항</title>
+        <description></description>
+        <pubDate>Sun, 28 Jul 2024 15:38:11 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/data-structure/java-pq/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/data-structure/java-pq/</guid>
+        
+        <category>java priority-queue</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>HTTP 완벽가이드 서평</title>
+        <description></description>
+        <pubDate>Fri, 07 Jun 2024 19:34:00 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/review/http-perfect-guide/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/review/http-perfect-guide/</guid>
+        
+        <category>http book review</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Neovim</title>
+        <description></description>
+        <pubDate>Mon, 13 May 2024 00:15:34 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/nvim/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/nvim/</guid>
+        
+        <category>vim nvim neovim</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>RFC(Request For Comments)</title>
+        <description></description>
+        <pubDate>Sat, 11 May 2024 22:10:23 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/rfc/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/rfc/</guid>
+        
+        <category>rfc</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자</title>
+        <description></description>
+        <pubDate>Fri, 10 May 2024 11:41:39 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/productivity/nvim-leetcode/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/productivity/nvim-leetcode/</guid>
+        
+        <category>productivity nvim lazyvim leetcode</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>생산성</title>
+        <description>생산성을 올린 경험, 설정 방법, 인사이트를 공유합니다.</description>
+        <pubDate>Fri, 10 May 2024 11:40:45 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/productivity/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/productivity/</guid>
+        
+        <category>vim, nvim</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>리뷰</title>
+        <description>책을 읽고 느낀점, 인사이트를 정리한다.</description>
+        <pubDate>Tue, 07 May 2024 16:25:26 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/review/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/review/</guid>
+        
+        <category>book review</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Binary Search Tree</title>
+        <description></description>
+        <pubDate>Tue, 02 Apr 2024 18:13:17 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/data-structure/bst/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/data-structure/bst/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>자료구조</title>
+        <description></description>
+        <pubDate>Tue, 26 Mar 2024 16:12:30 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/data-structure/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/data-structure/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>책 요약</title>
+        <description></description>
+        <pubDate>Mon, 25 Mar 2024 14:02:51 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/summary/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/summary/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>책</title>
+        <description></description>
+        <pubDate>Mon, 25 Mar 2024 14:01:39 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/</guid>
+        
+        <category>book</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>오브젝트 내용 요약</title>
+        <description>책 &lt;오브젝트&gt;의 내용을 요약한다.</description>
+        <pubDate>Mon, 25 Mar 2024 14:01:01 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/summary/object/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/summary/object/</guid>
+        
+        <category>oop</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>운영체제</title>
+        <description></description>
+        <pubDate>Thu, 29 Feb 2024 20:05:20 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/os/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/os/</guid>
+        
+        <category>os</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Blocking I/O vs Non-Blocking I/O</title>
+        <description></description>
+        <pubDate>Thu, 29 Feb 2024 20:05:07 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/os/blocking-io-vs-non-blocking-io/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/os/blocking-io-vs-non-blocking-io/</guid>
+        
+        <category>io</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>TCP 송/수신 원리</title>
+        <description></description>
+        <pubDate>Thu, 29 Feb 2024 16:50:11 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/network/tcp-sending-and-receiving/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/network/tcp-sending-and-receiving/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>네트워크</title>
+        <description></description>
+        <pubDate>Thu, 29 Feb 2024 12:54:11 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/network/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/network/</guid>
+        
+        <category>network</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>CORS</title>
+        <description>Cross Origin Resource Sharing</description>
+        <pubDate>Wed, 28 Feb 2024 20:40:12 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/http/cors/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/http/cors/</guid>
+        
+        <category>cors</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>HTTP</title>
+        <description></description>
+        <pubDate>Wed, 28 Feb 2024 18:56:04 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/http/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/http/</guid>
+        
+        <category>http</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>운영체제 용어 정리</title>
+        <description></description>
+        <pubDate>Tue, 27 Feb 2024 00:55:48 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/os/summary/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/os/summary/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>데이터베이스 용어 정리</title>
+        <description></description>
+        <pubDate>Tue, 27 Feb 2024 00:54:56 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/database/summary/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/database/summary/</guid>
+        
+        <category>database</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>정렬</title>
+        <description>정렬의 종류, 언어에서 제공하는 정렬 등</description>
+        <pubDate>Sun, 25 Feb 2024 16:07:51 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/algorithm/sort/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/algorithm/sort/</guid>
+        
+        <category>algorithm sort</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>알고리즘</title>
+        <description></description>
+        <pubDate>Sat, 24 Feb 2024 20:29:24 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/algorithm/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/algorithm/</guid>
+        
+        <category>algorithm</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Isolation Level 정리</title>
+        <description></description>
+        <pubDate>Fri, 23 Feb 2024 03:06:27 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/database/isolation-level/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/database/isolation-level/</guid>
+        
+        <category>database transaction</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>데이터베이스</title>
+        <description></description>
+        <pubDate>Fri, 23 Feb 2024 02:13:39 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/database/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/database/</guid>
+        
+        <category>database</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>동시성 이슈</title>
+        <description>동시성 이슈와 문제 해결 사례 정리</description>
+        <pubDate>Wed, 21 Feb 2024 22:29:44 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/concurrency-issue/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/concurrency-issue/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>CS 지식 정리</title>
+        <description></description>
+        <pubDate>Mon, 19 Feb 2024 23:46:53 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/cs/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/cs/</guid>
+        
+        <category>CS</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>패턴</title>
+        <description>디자인 패턴 포함, 아키텍처 패턴 등</description>
+        <pubDate>Sun, 11 Feb 2024 21:19:37 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/pattern/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/pattern/</guid>
+        
+        <category>pattern</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>상태 패턴 (State)</title>
+        <description>객체 내부에서 자신의 상태를 변경한다</description>
+        <pubDate>Sun, 11 Feb 2024 17:30:51 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/pattern/state/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/pattern/state/</guid>
+        
+        <category>pattern</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>전략 패턴 (Strategy)</title>
+        <description>알고리즘을 캡슐화하여 런타임에서 변경할 수 있도록 한다</description>
+        <pubDate>Sun, 11 Feb 2024 15:37:12 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/pattern/strategy/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/pattern/strategy/</guid>
+        
+        <category>pattern</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>커맨드 명령어 모음</title>
+        <description></description>
+        <pubDate>Sun, 11 Feb 2024 02:27:01 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/commands/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/commands/</guid>
+        
+        <category>command</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>ROOT</title>
+        <description></description>
+        <pubDate>Sun, 11 Feb 2024 02:23:41 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/index/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/index/</guid>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>프로젝트</title>
+        <description></description>
+        <pubDate>Sun, 11 Feb 2024 02:23:28 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/project/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/project/</guid>
+        
+        <category>project</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Mac</title>
+        <description>MacOS 관련 설정, 팁, 문제 해결 등</description>
+        <pubDate>Sun, 11 Feb 2024 02:22:02 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/mac/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/mac/</guid>
+        
+        <category>mac</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Git</title>
+        <description></description>
+        <pubDate>Sun, 11 Feb 2024 02:21:45 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/git/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/git/</guid>
+        
+        <category>git</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Kotlin</title>
+        <description></description>
+        <pubDate>Sun, 11 Feb 2024 02:20:49 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/kotlin/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/kotlin/</guid>
+        
+        <category>kotlin</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Java</title>
+        <description></description>
+        <pubDate>Sun, 11 Feb 2024 02:20:24 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/java/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/java/</guid>
+        
+        <category>java</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>옵저버 패턴 (Observer)</title>
+        <description>구독하고 있는 객체들에게 메시지를 보낸다</description>
+        <pubDate>Sun, 11 Feb 2024 02:02:10 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/pattern/observer/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/pattern/observer/</guid>
+        
+        <category>pattern</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>디자인 패턴</title>
+        <description>소프트웨어 개발, 특히 OOP에서 자주 사용되는 패턴들을 다룬다.</description>
+        <pubDate>Sun, 11 Feb 2024 00:20:13 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/pattern/design-pattern/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/pattern/design-pattern/</guid>
+        
+        <category>pattern</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>프리미티브 타입과 레퍼런스 타입</title>
+        <description></description>
+        <pubDate>Sat, 10 Feb 2024 11:59:19 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/java/primitive-and-reference-types/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/java/primitive-and-reference-types/</guid>
+        
+        <category>java</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Git 명령어 &amp; 매뉴얼</title>
+        <description>명령어 기록용</description>
+        <pubDate>Sat, 10 Feb 2024 06:27:24 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/git/manual/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/git/manual/</guid>
+        
+        <category>git</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>Kotlin Koans 필요한 내용 요약</title>
+        <description>Intellij에서 제공하는 Kotlin 튜토리얼 플러그인</description>
+        <pubDate>Sat, 10 Feb 2024 03:44:56 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/kotlin/kotlin-koans/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/kotlin/kotlin-koans/</guid>
+        
+        <category>kotlin</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>equals와 hashCode</title>
+        <description></description>
+        <pubDate>Fri, 02 Feb 2024 19:39:05 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/java/equals-and-hashCode/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/java/equals-and-hashCode/</guid>
+        
+        <category>java</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>MacOS 생산성 앱 &amp; 팁 모음</title>
+        <description></description>
+        <pubDate>Mon, 29 Jan 2024 20:53:30 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/mac/productivity-and-tips/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/mac/productivity-and-tips/</guid>
+        
+        <category>mac</category>
+        
+        
+      </item>
+    
+
+    
+      <item>
+        <title>프로그래머의 뇌 서평</title>
+        <description></description>
+        <pubDate>Thu, 31 Mar 2022 16:26:50 +0900</pubDate>
+        <link>https://jxmen.github.io/wiki/book/review/programmers-brain/</link>
+        <guid isPermaLink="true">https://jxmen.github.io/wiki/book/review/programmers-brain/</guid>
+        
+        <category>book</category>
+        
+        
+      </item>
+    
+
+
+  </channel>
+</rss>

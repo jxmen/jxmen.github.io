@@ -1,0 +1,12 @@
+{
+ "type": "wiki",
+ "title": "CS AI 모의면접 프로젝트",
+ "summary": "",
+ "parent": "project",
+ "url": "/wiki/project/cs-ai-interviewer",
+ "updated": "2024-08-29 22:25:44 +0900",
+ "resource": "BEB6D221-4460-4A21-914F-BC40F0BCD2A1",
+ "children": [
+  "project/cs-ai-interviewer/refactoring-with-fixture-monkey"
+ ]
+}

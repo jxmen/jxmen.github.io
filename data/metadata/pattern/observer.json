@@ -1,0 +1,10 @@
+{
+ "type": "wiki",
+ "title": "옵저버 패턴 (Observer)",
+ "summary": "구독하고 있는 객체들에게 메시지를 보낸다",
+ "parent": "pattern",
+ "url": "/wiki/pattern/observer",
+ "updated": "2024-02-11 02:02:10 +0900",
+ "resource": "A342C3BA-F895-41C8-8B17-AAC356C900BE",
+ "children": []
+}

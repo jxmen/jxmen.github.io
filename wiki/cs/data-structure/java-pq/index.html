@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>Java에서 우선순위 큐 사용 시 주의사항 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.github.io/wiki/cs/data-structure/java-pq/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.github.io/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Java에서 우선순위 큐 사용 시 주의사항">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.github.io/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.github.io/wiki/cs/data-structure/java-pq/">
+
+    <meta name="google-site-verification" content="IoNEKzwdxuYHx0g2nEWusOJ2kK0ompxgUZ-evn27Vlk">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.github.io/wiki/cs/data-structure/java-pq/" />
+        <meta name="twitter:title" content="Java에서 우선순위 큐 사용 시 주의사항" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="cs/data-structure/java-pq">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/cs/data-structure/java-pq/"> Java에서 우선순위 큐 사용 시 주의사항 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/data-structure/java-pq.md" target="_blank">created: 2024.07.28</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/cs/data-structure/java-pq.md" target="_blank">updated: 2024.07.28</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/cs/data-structure/java-pq.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=Java%EC%97%90%EC%84%9C+%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84+%ED%81%90+%EC%82%AC%EC%9A%A9+%EC%8B%9C+%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    java priority-queue
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#poll-%EB%A9%94%EC%84%9C%EB%93%9C%EC%99%80-stream" id="markdown-toc-poll-메서드와-stream">poll 메서드와 stream</a></li>
+</ul>
+
+<h3 id="poll-메서드와-stream">poll 메서드와 stream</h3>
+
+<p><code class="language-plaintext highlighter-rouge">poll()</code>메서드를 사용하지 않고 stream을 통해 데이터를 순회할 경우 데이터의 순서가 보장되지 않는다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PriorityQueue</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PriorityQueue</span><span class="o">&lt;&gt;();</span>
+<span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+<span class="n">minHeap</span><span class="o">.</span><span class="na">offer</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeapStreamList</span> <span class="o">=</span> <span class="n">minHeap</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+		<span class="o">.</span><span class="na">mapToInt</span><span class="o">(</span><span class="nl">Integer:</span><span class="o">:</span><span class="n">intValue</span><span class="o">)</span> <span class="c1">// stream만 사용시에는 heap의 순서가 보장되지 않음</span>
+		<span class="o">.</span><span class="na">boxed</span><span class="o">()</span>
+		<span class="o">.</span><span class="na">toList</span><span class="o">();</span>
+<span class="n">assertThat</span><span class="o">(</span><span class="n">minHeapStreamList</span><span class="o">).</span><span class="na">containsExactly</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>만약 데이터의 순서를 보장하는 식으로 구현하려면, poll 메서드를 계속해서 호출하는 식으로 코드를 작성하는 것이 좋다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// poll 사용 시 순서 보장됨과 동시에 시간 복잡도 O(1) 소요 (전체는 O(N))</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">minHeapSortedWithPoll</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="k">while</span> <span class="o">(!</span><span class="n">minHeap</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+	<span class="n">minHeapSortedWithPoll</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">minHeap</span><span class="o">.</span><span class="na">poll</span><span class="o">());</span> <span class="c1">// O(1)</span>
+<span class="o">}</span>
+<span class="n">assertThat</span><span class="o">(</span><span class="n">minHeapSortedWithPoll</span><span class="o">).</span><span class="na">containsExactly</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>전체 예제 코드는 <a href="https://github.com/jxmen/lets-coding/blob/4731e8f86cbeabe090a8c2d6e93d2aeb17686d4d/algorithm/java/src/test/java/HeapTest.java#L78">여기</a>에 있다.</p>
+
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>

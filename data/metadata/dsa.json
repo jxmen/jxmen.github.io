@@ -1,0 +1,12 @@
+{
+ "type": "wiki",
+ "title": "자료구조/알고리즘",
+ "summary": "",
+ "parent": "index",
+ "url": "/wiki/dsa",
+ "updated": "2024-09-02 17:31:32 +0900",
+ "resource": "E150BC99-836A-4328-B005-2B7418EA09BF",
+ "children": [
+  "dsa/coding-test-technics"
+ ]
+}

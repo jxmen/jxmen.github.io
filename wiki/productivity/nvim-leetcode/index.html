@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 참고: https://jekyllrb.com/docs/liquid/filters/ -->
+    <title>neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자 - 박주영의 위키</title>
+
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="xD2UvBTOH6xxBi9MseahHz4Nt9u2vYZbgY2wVo7Bdyc">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="https://jxmen.github.io/wiki/productivity/nvim-leetcode/">
+    <link rel="alternate" type="application/rss+xml" title="박주영의 위키" href="https://jxmen.github.io/feed.xml">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자">
+    <meta property="og:description" content="">
+    <!---
+    <meta property="og:image" content="https://jxmen.github.io/resource/johngrib.png">
+    -->
+    <meta property="og:url" content="https://jxmen.github.io/wiki/productivity/nvim-leetcode/">
+
+    <meta name="google-site-verification" content="IoNEKzwdxuYHx0g2nEWusOJ2kK0ompxgUZ-evn27Vlk">
+
+    <!--- 
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:url" content="https://jxmen.github.io/wiki/productivity/nvim-leetcode/" />
+        <meta name="twitter:title" content="neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자" />
+        <meta name="twitter:description" content="" />
+    --->
+
+    <!---
+    <link rel="apple-touch-icon" sizes="57x57"        href="/resource/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"        href="/resource/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"        href="/resource/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"        href="/resource/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"      href="/resource/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"      href="/resource/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"      href="/resource/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"      href="/resource/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"      href="/resource/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/resource/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"   href="/resource/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"   href="/resource/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"   href="/resource/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resource/icon/manifest.json">
+    --->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/resource/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+<body>
+<header class="header">
+    <div>
+        <a class="site-title" href="/">박주영의 위키</a>
+    </div>
+    <div>
+        <a class="site-title-right" href="/about/">me</a>
+    </div>
+    <div>
+        <a id="random-button" class="site-title-right">random</a>
+    </div>
+    <div>
+        <!---<a class="site-title-right" href="/wiki/root-index/">index</a> --->
+        <a class="site-title-right" href="/wiki/index/">index</a>
+    </div>
+</header>
+<script async src="/js/shortcut.js"></script>
+
+    
+        <div class="page-content">
+            <div class="search">
+    <form role="search" method="get" action="/search/">
+         <input name="searchString" class="searchInput" placeholder=" 검색하세요" type="text">
+         <input type="submit" class="searchButton" value="Search">
+    </form>
+</div>
+            <div class="post">
+                
+<input type="hidden" id="thisName" value="productivity/nvim-leetcode">
+<div class="post">
+    <header class="post-header">
+        <h1 class="page-title">
+            <a href="/wiki/productivity/nvim-leetcode/"> neovim + lazyvim + leetcode 플러그인으로 터미널에서 leetcode 문제를 풀어보자 </a>
+        </h1>
+    
+        <div class="history-button">
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/productivity/nvim-leetcode.md" target="_blank">created: 2024.05.10</a></p>
+            <p><a href="https://github.com/jxmen/jxmen.github.io/blame/main/_wiki/productivity/nvim-leetcode.md" target="_blank">updated: 2024.05.10</a></p>
+            <p>
+                <a href="https://github.com/jxmen/jxmen.github.io/edit/main/_wiki/productivity/nvim-leetcode.md">편집하기</a>
+                /
+                <a href="https://github.com/jxmen/jxmen.github.io/issues/new?title=neovim+%2B+lazyvim+%2B+leetcode+%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8%EC%9C%BC%EB%A1%9C+%ED%84%B0%EB%AF%B8%EB%84%90%EC%97%90%EC%84%9C+leetcode+%EB%AC%B8%EC%A0%9C%EB%A5%BC+%ED%92%80%EC%96%B4%EB%B3%B4%EC%9E%90&amp;body=%EC%9D%98%EA%B2%AC%EC%9D%84%20%EB%82%A8%EA%B2%A8%EC%A3%BC%EC%84%B8%EC%9A%94">의견 남기기</a>
+            </p>
+        </div>
+
+        <div id="parent-list"></div>
+
+
+
+    <div class="post-tag">
+    productivity nvim lazyvim leetcode
+</div>
+
+
+
+
+    </header>
+    <article class="post-content">
+        <ul id="markdown-toc">
+  <li><a href="#neovim-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0" id="markdown-toc-neovim-설치하기">neovim 설치하기</a></li>
+  <li><a href="#lazyvim-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0" id="markdown-toc-lazyvim-설치하기">lazyvim 설치하기</a></li>
+  <li><a href="#lazyvim%EC%97%90%EC%84%9C-leetcode-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8-%EC%84%A4%EC%B9%98---leetcodenvim" id="markdown-toc-lazyvim에서-leetcode-플러그인-설치---leetcodenvim">lazyvim에서 leetcode 플러그인 설치 - leetcode.nvim</a></li>
+  <li><a href="#leetcode%EC%B0%BD-%EC%97%B4%EA%B8%B0" id="markdown-toc-leetcode창-열기">leetcode창 열기</a></li>
+  <li><a href="#%EB%B6%80%EB%A1%9D-nerd-%ED%8F%B0%ED%8A%B8-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0" id="markdown-toc-부록-nerd-폰트-설치하기">(부록) nerd 폰트 설치하기</a></li>
+  <li><a href="#%EC%93%B0%EB%A9%B4%EC%84%9C-%EB%8A%90%EB%82%80-%EC%95%84%EC%89%AC%EC%9A%B4-%EC%A0%90" id="markdown-toc-쓰면서-느낀-아쉬운-점">쓰면서 느낀 아쉬운 점</a></li>
+  <li><a href="#%EA%B0%81%EC%A3%BC" id="markdown-toc-각주">각주</a></li>
+</ul>
+
+<p>2024/05/10 글을 처음 작성하는 시점에서 나는 leetcode 문제를 터미널에서도 풀고있다. 지인에게 설정 방법을 공유하고 기록용으로 해당 글을 작성한다.</p>
+
+<h3 id="neovim-설치하기">neovim 설치하기</h3>
+
+<p><a href="https://github.com/neovim/neovim">neovim</a>은 vim을 fork하여 만든 오픈소스로, 기타 여러 플러그인을 깔지 않아도 vim에서 제공하는 기본 기능보다 더 준수한 기능들을 제공한다.</p>
+
+<p>특히 기존 vim을 설정하기 위한 언어인 <code class="language-plaintext highlighter-rouge">vimscript</code>를 내가 자세히 써보지 않았지만, vim 개발자들 사이에서는 그리 좋지 않은 언어라고 들었다.</p>
+
+<p>이에 비해 neovim은 설정을 <code class="language-plaintext highlighter-rouge">lua</code> 스크립트 언어로 하기에 이에 대한 스트레스가 덜하다.</p>
+
+<h3 id="lazyvim-설치하기">lazyvim 설치하기</h3>
+
+<p><a href="https://github.com/LazyVim/LazyVim">lazyvim</a>은 neovim의 패키지 매니저, 설정 파일 관리 등의 다양한 기능을 지원하여 neovim을 더 쉽게 쓸 수 있게 해준다.</p>
+
+<p>lazyvim을 설치하면 기존 <code class="language-plaintext highlighter-rouge">~/.config/nvim</code>에 있던 디렉토리는 <code class="language-plaintext highlighter-rouge">~/.config/nvim.bak</code>으로 복사된다.</p>
+
+<h3 id="lazyvim에서-leetcode-플러그인-설치---leetcodenvim">lazyvim에서 leetcode 플러그인 설치 - leetcode.nvim</h3>
+
+<p>(lazyvim외에 다른 플러그인 매니저 등을 통해 leetcode 플러그인을 테스트해 보지는 않았다.)</p>
+
+<p>우선 <a href="https://github.com/kawre/leetcode.nvim">leetcode.nvim</a> 문서에서도 lazyvim을 기반으로 설치하는 방법을 가이드하고 있어, lazyvim으로 설치하였다.</p>
+
+<p>lazyvim의 경우 <code class="language-plaintext highlighter-rouge">~/.config/nvim/lua/plugins/</code> 폴더 내에 모든 플러그인 설정들을 읽어들인다고 한다. 나의 경우 플러그인마다 하나의 파일을 만들어서 관리하고 있다. <a href="https://github.com/jxmen/dotfiles/blob/main/.config/nvim/lua/plugins/leetcode.lua">설정 파일</a> <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p>lua 스크립트를 저장하고 nvim 명령어만 입력하면 lazyvim이 알아서 플러그인을 설치해줄 것이다.</p>
+
+<h3 id="leetcode창-열기">leetcode창 열기</h3>
+
+<p>기본 설정된 명령어로 <code class="language-plaintext highlighter-rouge">nvim leetcode.nvim</code> 명령어를 사용하면 이제 릿코드 UI가 나올 것이다! 여기까지 왔다면 이제 문제를 열심히 풀면 된다!</p>
+
+<h3 id="부록-nerd-폰트-설치하기">(부록) nerd 폰트 설치하기</h3>
+
+<p>터미널에서 일부 지원하지 않는 아이콘이 있다면 깨짐 현상이 발생할 수 있다.</p>
+
+<p>찾아보니 <a href="https://github.com/ryanoasis/nerd-fonts">Nerd 폰트</a>가 개발자에게 많은 아이콘을 지원한다고 하여, nerd 폰트를 iterm2에 적용했다.</p>
+
+<p>나의 경우 D2Coding 폰트를 평소 좋아하여 해당 글꼴을 다운받아서 적용했다.</p>
+
+<p><img src="/resource//82cc34ea-6e3d-4c14-98e9-f69565eed4b3.png" alt="image"></p>
+
+<h3 id="쓰면서-느낀-아쉬운-점">쓰면서 느낀 아쉬운 점</h3>
+
+<p>이 부분은 이슈를 남기거나 직접 기능을 개발해도 좋을 것 같다.</p>
+
+<ul>
+  <li>SQL 문제는 지원하지 않는 것 같다.
+    <ul>
+      <li>문제 목록에서 SQL로 분류된 문제가 검색되지 않는다.</li>
+      <li>SQL이 오히려 터미널에서만 풀기에 적합하다고 생각했는데, 왜 지원하지 않는지는 찾아보아야 할 것 같다.</li>
+    </ul>
+  </li>
+  <li>Tree Visualizer 같은 부가적인 기능을 지원하지 않는다.
+    <ul>
+      <li>Tree 문제의 경우 릿코드 사이트에서는 배열만 입력해도 트리가 어떻게 구성되어 있는지 알려주는데, 이 부분이 없어서 조금 아쉽다.</li>
+    </ul>
+  </li>
+  <li>
+<strong>문제가 어떤 tag들을 가지고 있는지 지원하지 않는다.</strong>
+    <ul>
+      <li>특정 주제에 대해 공부하고 있다면 해당 주제의 문제 위주로 푸는 것이 좋다고 생각되어 아쉽다.</li>
+    </ul>
+  </li>
+  <li>
+<strong>StudyPlan 코스 문제 목록을 지원하지 않는다.</strong>
+    <ul>
+      <li>모든 문제를 마구잡이로 푸는 것보다는 핵심 기출 문제만 풀면 된다고 생각하는데, 이로 인해 <a href="leetcode.com">https://leetcode.com/studyplan/top-interview-150/</a>과 이 플러그인을 계속 왔다갔다 해야한다.</li>
+    </ul>
+  </li>
+  <li>
+<strong><a href="https://chromewebstore.google.com/detail/leethub-v2/mhanfgfagplhgemhjfeolkkdidbakocm">leethub</a>처럼 문제를 풀었을 때 자동으로 github commit이 되는 기능을 지원하지 않는다.</strong>
+    <ul>
+      <li>내가 요새 잔디심기에 관심이 있어, 이 기능이 없어서 좀 아쉽다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="각주">각주</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>이 부분은 나중에 너무 파편화 되어있다고 판단되면 init.lua 등 하나의 파일로 옮기는 작업을 할 수 있습니다. 링크에 있는 파일 경로가 다를 시 제보 부탁드립니다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+    </article>
+
+
+    
+<div class="giscus"></div>
+<div class="post-comments">
+  <script src="https://giscus.app/client.js" data-repo="jxmen/jxmen.github.io" data-repo-id="R_kgDOLKyoHA" data-category="Comments" data-category-id="DIC_kwDOLKyoHM4CdGSe" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="ko" crossorigin="anonymous" async></script>
+</div>
+
+
+
+
+</div>
+<script async src="/js/create-link.js"></script>
+
+
+<script async>
+    ;(function() {
+        const tableList = document.querySelectorAll('.table-generate');
+
+        if (tableList == null) {
+            return;
+        }
+
+        for (let i = 0; i < tableList.length; i++) {
+            const ul = tableList[i];
+            const draw = {
+                th: '',
+                td: ''
+            };
+
+            const rows = ul.children;
+            for (let j = 0; j < rows.length; j++) {
+                const row = rows[j].children[0];
+                const columns = row.children;
+                const isHeader = /^th/.test(rows[j].innerHTML);
+                const colTag = isHeader ? 'th' : 'td';
+
+                let colData = '';
+                for (let k = 0; k < columns.length; k++) {
+                    const column = columns[k];
+                    const content = column.innerHTML;
+                    colData += `<${colTag}>${content}</${colTag}>`;
+                }
+
+                const trHtml = `<tr>${colData}</tr>`
+
+                draw[colTag] += trHtml;
+            }
+
+            const result = `
+                <table>
+                    <thead>${draw.th}</thead>
+                    <tbody>${draw.td}</tbody>
+                </table>`
+
+            const targetId = ul.getAttribute('data-target-id');
+            document.getElementById(targetId).innerHTML = result;
+            ul.remove();
+        }
+    })();
+    ;(function() {
+        const source = document.querySelectorAll('.dynamic-insert');
+
+        if (source == null) {
+            return;
+        }
+
+        for (let i = 0; i < source.length; i++) {
+            const item = source[i];
+
+            const target = item.getAttribute('data-target-selector');
+            document.querySelector(target).innerHTML = item.outerHTML;
+            item.remove();
+        }
+    })();
+</script>
+
+
+<script async src="/js/parent.js"></script>
+<script async src="/js/toc-highlight.js"></script>
+
+            </div>
+        </div>
+        <footer class="footer">
+    <div>
+
+    </div>
+
+</footer>
+    
+</body>
+</html>
